@@ -1,0 +1,88 @@
+/* HeroSection.css */
+.hero-section {
+    background-color: #333d29;
+    color: white;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-container {
+    max-width: 90rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+  }
+  
+  .hero-stats div {
+    text-align: center;
+  }
+  
+  .hero-number {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .hero-label {
+    font-size: 1rem;
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-image-wrapper {
+    /* background: #f4f4f4; */
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .hero-text {
+        max-width: 100%;
+    }
+  
+    .hero-image-container {
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+  }
+  

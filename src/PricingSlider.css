@@ -1,0 +1,218 @@
+.slider-outer-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 60px;
+  }
+  
+  .cards-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 32px; /* Increased gap between cards */
+    padding: 30px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    user-select: none;
+  }
+  
+  .cards-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .pricing-card {
+    flex: 0 0 calc(25% - 24px); /* Adjusted for new gap */
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .pricing-card.pink {
+    background: rgba(255, 239, 239, 0.5);
+  }
+  
+  .pricing-card.blue {
+    background: rgba(239, 242, 255, 0.5);
+  }
+  
+  .pricing-card.light-blue {
+    background: rgba(239, 247, 255, 0.5);
+  }
+  
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 0 0 16px;
+    color: #1a1a1a;
+  }
+  
+  .price-container {
+    margin-bottom: 16px;
+  }
+  
+  .price {
+    font-size: 48px;
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+  
+  .period {
+    font-size: 16px;
+    color: #666;
+    margin-left: 4px;
+  }
+  
+  .description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    min-height: 60px;
+  }
+  
+  .cta-button {
+    width: 100%;
+    padding: 14px; /* Slightly increased padding */
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-button.light {
+    background: white;
+    color: #1a1a1a;
+    border: 1px solid #e5e5e5;
+  }
+  
+  .cta-button.blue {
+    background: #4F46E5;
+    color: white;
+  }
+  
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Slightly increased gap */
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .feature svg {
+    color: #4F46E5;
+    flex-shrink: 0;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; /* Increased size */
+    height: 48px; /* Increased size */
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-button:hover {
+    background: #f5f5f5;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .nav-button.left {
+    left: 0;
+  }
+  
+  .nav-button.right {
+    right: 0;
+  }
+  
+  .nav-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .arrow-icon {
+    font-size: 24px;
+    color: #666;
+  }
+  
+  @media (max-width: 1400px) {
+    .pricing-card {
+      flex: 0 0 calc(33.33% - 21.33px);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .pricing-card {
+      flex: 0 0 calc(50% - 16px);
+    }
+    
+    .slider-outer-container {
+      padding: 40px 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-card {
+      flex: 0 0 calc(100% - 32px);
+      min-width: 280px;
+    }
+    
+    .slider-outer-container {
+      padding: 20px 15px;
+    }
+    
+    .cards-container {
+      gap: 24px;
+      padding: 20px;
+    }
+  }

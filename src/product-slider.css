@@ -1,0 +1,178 @@
+/* product-slider.css */
+
+/* General styling */
+.product-slider-container {
+    max-width: 1152px; /* Equivalent to max-w-6xl */
+    margin: 0 auto;
+    padding: 1.5rem; /* Equivalent to p-6 */
+    position: relative;
+  }
+  
+  .product-slider-title {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+    margin-bottom: 2rem; /* Equivalent to mb-8 */
+  }
+  
+  /* Navigation arrows */
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 0.5rem;
+    border-radius: 9999px; /* Equivalent to rounded-full */
+    background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .nav-button:hover:not(:disabled) {
+    background-color: #e5e7eb; /* Equivalent to hover:bg-gray-200 */
+  }
+  
+  .nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .nav-button-prev {
+    left: 0;
+  }
+  
+  .nav-button-next {
+    right: 0;
+  }
+  
+  /* Products grid */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; /* Equivalent to gap-4 */
+    overflow: hidden;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .product-image-container {
+    margin-bottom: 1rem; /* Equivalent to mb-4 */
+    width: 12rem; /* Equivalent to w-48 */
+    height: 16rem; /* Equivalent to h-64 */
+    overflow: hidden;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-title {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+  }
+  
+  .product-tagline {
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    color: #4b5563; /* Equivalent to text-gray-600 */
+    margin-top: 0.25rem; /* Equivalent to mt-1 */
+    margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  }
+  
+  .product-buttons {
+    display: flex;
+    gap: 0.5rem; /* Equivalent to space-x-2 */
+  }
+  
+  .product-button {
+    padding: 0.5rem 1rem; /* Equivalent to px-4 py-2 */
+    background-color: #3b82f6; /* Equivalent to bg-blue-500 */
+    color: white;
+    border-radius: 9999px; /* Equivalent to rounded-full */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-button:hover {
+    background-color: #2563eb; /* Equivalent to hover:bg-blue-600 */
+  }
+  
+  /* Specifications grid */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; /* Equivalent to gap-4 */
+    margin-top: 2rem; /* Equivalent to mt-8 */
+  }
+  
+  .spec-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem; /* Equivalent to h-20 */
+  }
+  
+  .spec-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Equivalent to gap-2 */
+  }
+  
+  .spec-icon {
+    width: 1.5rem; /* Equivalent to w-6 */
+    height: 1.5rem; /* Equivalent to h-6 */
+  }
+  
+  .spec-text {
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    white-space: pre-line;
+    text-align: center;
+  }
+  
+  .dynamic-control-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem; /* Equivalent to text-xl */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .products-grid, .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-button-prev {
+      left: -10px;
+    }
+    
+    .nav-button-next {
+      right: -10px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .products-grid, .specs-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .nav-button {
+      top: 30%;
+    }
+    
+    .product-image-container {
+      width: 100%;
+      max-width: 12rem;
+    }
+  }

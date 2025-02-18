@@ -1,0 +1,126 @@
+/* ServiceSection.css */
+.service-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.service-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #1a1a1a;
+}
+
+.service-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.service-card {
+  position: relative;
+  height: 450px;
+  width: 450px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.5s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+  transform-origin: center;
+  padding: 12px; /* Added padding inside card */
+  background: rgb(9, 25, 12); /* Added to make padding visible */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds depth */
+}
+
+.service-card.expanded {
+  z-index: 2;
+}
+
+.service-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-out;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+.service-text-content {
+  position: absolute;
+  bottom: 12px; /* Adjusted to account for card padding */
+  left: 12px; /* Adjusted to account for card padding */
+  right: 12px; /* Adjusted to account for card padding */
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  transform: translateY(100%);
+  opacity: 0;
+  border-radius: 0 0 0.5rem 0.5rem; /* Match image container border radius */
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.service-description {
+  font-size: 1rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .service-card {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-row {
+    flex-direction: column;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 450px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  animation: fadeIn 0.5s ease-out;
+}
