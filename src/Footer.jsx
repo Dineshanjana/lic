@@ -6,7 +6,8 @@ const Footer = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const footerStyle = {
-    backgroundColor: '#1a1a1a',
+    marginTop:'20px',
+    backgroundColor: '#ff9934',
     padding: '20px 40px',
     color: '#ffffff',
     fontFamily: 'Arial, sans-serif',
@@ -31,6 +32,7 @@ const Footer = () => {
   const footerLogo = {
     width: '30px',
     height: 'auto',
+    fontSize: '24px',
   };
 
   const footerNav = {
@@ -42,12 +44,12 @@ const Footer = () => {
   const navLink = {
     color: '#ffffff',
     textDecoration: 'none',
-    fontSize: '14px',
+    fontSize: '19px',
   };
 
   const copyright = {
-    fontSize: '12px',
-    color: '#888',
+    fontSize: '19px',
+    color: 'white',
     margin: '10px 0',
   };
 
@@ -55,6 +57,7 @@ const Footer = () => {
     display: 'flex',
     alignItems: 'center',
     gap: '15px',
+    fontSize: '19px',
     margin: '10px 0',
   };
 
@@ -72,7 +75,7 @@ const Footer = () => {
     display: 'flex',
     alignItems: 'center',
     gap: '5px',
-    fontSize: '14px',
+    fontSize: '15px',
     marginLeft: 'auto',
   };
 

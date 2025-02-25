@@ -56,13 +56,13 @@ const Carousel = () => {
     <div className="carousel">
       <div className="list">
         <div className="item">
-          <img src="img1.jpg" alt="Slide 1" />
+          <div className="text-bg review-1"></div>
           <div className="content">
             <div className="author">LUNDEV</div>
             <div className="title">DESIGN SLIDER</div>
             <div className="topic">ANIMAL</div>
             <div className="des">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              "The design team exceeded my expectations with their creative approach to our project. Highly recommended for anyone looking for innovative solutions."
             </div>
             <div className="buttons">
               <button>SEE MORE</button>
@@ -72,13 +72,13 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img2.jpg" alt="Slide 2" />
+          <div className="text-bg review-2"></div>
           <div className="content">
             <div className="author">DEVTEAM</div>
             <div className="title">NATURE BEAUTY</div>
             <div className="topic">NATURE</div>
             <div className="des">
-              Explore the wonders of nature through stunning landscapes.
+              "Explore the wonders of nature through stunning landscapes. Our team captured breathtaking scenery that will inspire your next adventure."
             </div>
             <div className="buttons">
               <button>EXPLORE</button>
@@ -88,13 +88,13 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img3.jpg" alt="Slide 3" />
+          <div className="text-bg review-3"></div>
           <div className="content">
             <div className="author">TECHWORLD</div>
             <div className="title">FUTURE TECH</div>
             <div className="topic">TECHNOLOGY</div>
             <div className="des">
-              The future of innovation starts with groundbreaking technology.
+              "The future of innovation starts with groundbreaking technology. Our latest developments have revolutionized how businesses approach digital transformation."
             </div>
             <div className="buttons">
               <button>DISCOVER</button>
@@ -104,13 +104,13 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img4.jpg" alt="Slide 4" />
+          <div className="text-bg review-4"></div>
           <div className="content">
             <div className="author">TRAVELERS</div>
             <div className="title">ADVENTURE AWAITS</div>
             <div className="topic">TRAVEL</div>
             <div className="des">
-              Join us on an unforgettable journey to breathtaking places.
+              "Join us on an unforgettable journey to breathtaking places. Our travel packages offer exclusive experiences that create memories lasting a lifetime."
             </div>
             <div className="buttons">
               <button>BOOK NOW</button>
@@ -122,7 +122,7 @@ const Carousel = () => {
 
       <div className="thumbnail">
         <div className="item">
-          <img src="img1.jpg" alt="Thumbnail 1" />
+          <div className="text-bg-thumb thumb-1"></div>
           <div className="content">
             <div className="title">DESIGN SLIDER</div>
             <div className="description">Animal World</div>
@@ -130,7 +130,7 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img2.jpg" alt="Thumbnail 2" />
+          <div className="text-bg-thumb thumb-2"></div>
           <div className="content">
             <div className="title">NATURE BEAUTY</div>
             <div className="description">Scenic Views</div>
@@ -138,7 +138,7 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img3.jpg" alt="Thumbnail 3" />
+          <div className="text-bg-thumb thumb-3"></div>
           <div className="content">
             <div className="title">FUTURE TECH</div>
             <div className="description">Cutting-Edge Innovation</div>
@@ -146,7 +146,7 @@ const Carousel = () => {
         </div>
 
         <div className="item">
-          <img src="img4.jpg" alt="Thumbnail 4" />
+          <div className="text-bg-thumb thumb-4"></div>
           <div className="content">
             <div className="title">ADVENTURE AWAITS</div>
             <div className="description">Travel the World</div>

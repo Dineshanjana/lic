@@ -51,5 +51,6 @@
 body, html {
   overflow: auto !important;
   overflow-y: auto;
+  background: #d8d0a5;
 }
 

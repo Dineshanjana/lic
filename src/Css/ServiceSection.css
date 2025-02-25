@@ -37,8 +37,8 @@
   cursor: pointer;
   transition: width 0.5s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
   transform-origin: center;
-  padding: 12px; /* Added padding inside card */
-  background: rgb(9, 25, 12); /* Added to make padding visible */
+  padding: 3px; /* Added padding inside card */
+  background: #3e2305; /* Added to make padding visible */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds depth */
 }
 
@@ -106,6 +106,32 @@
   .service-card {
     width: 100%;
     max-width: 450px;
+  }
+
+  .service-heading {
+    font-size: 2rem;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+  }
+
+  .service-description {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-heading {
+    font-size: 1.75rem;
+  }
+
+  .service-title {
+    font-size: 1rem;
+  }
+
+  .service-description {
+    font-size: 0.75rem;
   }
 }
 

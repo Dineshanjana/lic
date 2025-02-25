@@ -4,15 +4,21 @@ import ServiceSection from './ServiceSection.jsx';
 import Carousel from './Carousel.jsx';
 import Login from './Login.jsx';
 import PricingSlider from './PricingSlider.jsx';
+import EbookLanding from './EbookLanding.jsx';
+import PosterSection from './PosterSection.jsx';
+import Image from './Image.jsx';
 
 const HomePageLayout = () => {
   return (
     <div>
       <HeroSection />
+      <PosterSection />
       <ServiceSection />
       <Carousel />
-      <Login />
+      {/* <Login /> */}
       <PricingSlider />
+      {/* <EbookLanding /> */}
+      <Image/>
     </div>
   );
 };

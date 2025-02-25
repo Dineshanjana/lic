@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-
 .carousel {
     height: 100vh;
     width: 100vw;
@@ -16,10 +14,57 @@
     inset: 0 0 0 0;
 }
 
-.carousel .list .item img {
+/* Replace images with colored backgrounds and text */
+.text-bg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.review-1 {
+    background: linear-gradient(135deg, #3a6186, #89253e);
+}
+
+.review-2 {
+    background: linear-gradient(135deg, #134e5e, #71b280);
+}
+
+.review-3 {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
+
+.review-4 {
+    background: linear-gradient(135deg, #5f2c82, #49a09d);
+}
+
+.text-bg-thumb {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.thumb-1 {
+    background: linear-gradient(135deg, #3a6186, #89253e);
+}
+
+.thumb-2 {
+    background: linear-gradient(135deg, #134e5e, #71b280);
+}
+
+.thumb-3 {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
+
+.thumb-4 {
+    background: linear-gradient(135deg, #5f2c82, #49a09d);
 }
 
 .carousel .list .item .content {
@@ -49,6 +94,12 @@
 
 .carousel .list .item .topic {
     color: #f1683a;
+}
+
+.carousel .list .item .des {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin: 20px 0;
 }
 
 .carousel .list .item .buttons {
@@ -88,13 +139,6 @@
     height: 220px;
     flex-shrink: 0;
     position: relative;
-}
-
-.thumbnail .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
 .thumbnail .item .content {
@@ -160,4 +204,62 @@
 @keyframes runningTime {
     from { width: 100%; }
     to { width: 0; }
+}
+
+/* Keep your media queries from the original CSS */
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-image-container {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-number {
+    font-size: 1.5rem;
+  }
+
+  .hero-label {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 0.875rem;
+  }
+
+  .hero-number {
+    font-size: 1.25rem;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+  }
 }

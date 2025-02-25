@@ -59,51 +59,47 @@ const PricingSlider = () => {
 
   const pricingData = [
     {
-      image: '/api/placeholder/220/280',
-      title: "Individual",
-      price: "$29.99",
+      image: "first.jpg",
+      title: "LIC Jeevan Amar",
+      description: "A non-linked, non-participating, term insurance plan.",
+      buttonText: "Apply Now",
+      buttonVariant: "blue",
       features: [
-        "1 user",
-        "Unlimited calendars",
-        "Unlimited event types",
-        "Workflows",
-        "Integrate with your favorite apps",
-        "Accept payments via Stripe"
+        "Flexible premium payment options",
+        "Special rates for non-smokers",
+        "Option to enhance coverage",
+        "Tax benefits under Section 80C",
+        "Death benefit options"
       ],
       className: "pink"
     },
     {
-      title: "Teams",
-      price: "$12",
-      period: "per month/user",
-      description: "Highly recommended for small teams who seek to upgrade their time & perform.",
-      buttonText: "Get started",
+      image: "/second.jpg",
+      title: "LIC Tech Term",
+      description: "An online term insurance plan with attractive features.",
+      buttonText: "Apply Now",
       buttonVariant: "blue",
-     
       features: [
-        "1 team",
-        "Schedule meetings as a team",
-        "Round-Robin, Fixed Round-Robin",
-        "Collective Events",
-        "Advanced Routing Forms",
-        "Team Workflows"
+        "High sum assured rebates",
+        "Special rates for women",
+        "Flexible premium payment options",
+        "Option to enhance coverage",
+        "Tax benefits under Section 80C"
       ],
       className: "blue"
     },
     {
-      title: "Enterprise",
-      price: "$15k",
-      period: "per year",
-      description: "Robust scheduling for larger teams looking to have more control, privacy & security.",
-      buttonText: "Contact us",
-      buttonVariant: "light",
+      image: "/third.jpg",
+      title: "LIC Jeevan Labh",
+      description: "A limited premium paying, non-linked, with-profits endowment plan.",
+      buttonText: "Apply Now",
+      buttonVariant: "blue",
       features: [
-        "1 parent team and unlimited sub-teams",
-        "Organization workflows",
-        "Insights - analyze your booking data",
-        "Active directory sync",
-        "24/7 Email, Chat and Phone support",
-        "Sync your HRIS tools"
+        "Combination of protection and savings",
+        "Limited premium payment term",
+        "Loan facility available",
+        "Tax benefits under Section 80C",
+        "Maturity benefit"
       ],
       className: "light-blue"
     }
@@ -133,12 +129,8 @@ const PricingSlider = () => {
       >
         {allCards.map((plan, index) => (
           <div key={index} className={`pricing-card ${plan.className}`}>
-            {plan.badge && <div className="badge">{plan.badge}</div>}
-            <h2>{plan.title}</h2>
-            <div className="price-container">
-              <span className="price">{plan.price}</span>
-              <span className="period">{plan.period}</span>
-            </div>
+            <img src={plan.image} alt="Plan" className="plan-image" />
+            <h2 className="title">{plan.title}</h2>
             <p className="description">{plan.description}</p>
             <button className={`cta-button ${plan.buttonVariant}`}>
               {plan.buttonText}
