@@ -1,165 +1,121 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Carousel.css";
 
 const Carousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalSlides = 4; // Total number of slides
+
   useEffect(() => {
-    const next = document.getElementById("next");
-    const prev = document.getElementById("prev");
+    // Auto-advance timer
+    const autoAdvanceTimer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % totalSlides);
+    }, 7000);
 
-    const carousel = document.querySelector(".carousel");
-    const list = carousel.querySelector(".list");
-    const thumbnail = carousel.querySelector(".thumbnail");
-
-    let items = list.children;
-    let thumbnails = thumbnail.children;
-
-    let timeRunning = 3000;
-    let timeAutoNext = 7000;
-    let timeout;
-    let autoNext = setTimeout(() => {
-      next.click();
-    }, timeAutoNext);
-
-    const slide = (direction) => {
-      if (direction === "next") {
-        list.appendChild(items[0]);
-        thumbnail.appendChild(thumbnails[0]);
-        carousel.classList.add("next");
-      } else {
-        list.prepend(items[items.length - 1]);
-        thumbnail.prepend(thumbnails[thumbnails.length - 1]);
-        carousel.classList.add("prev");
-      }
-
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        carousel.classList.remove("next");
-        carousel.classList.remove("prev");
-      }, timeRunning);
-
-      clearTimeout(autoNext);
-      autoNext = setTimeout(() => {
-        next.click();
-      }, timeAutoNext);
-    };
-
-    next.addEventListener("click", () => slide("next"));
-    prev.addEventListener("click", () => slide("prev"));
-
-    return () => {
-      next.removeEventListener("click", () => slide("next"));
-      prev.removeEventListener("click", () => slide("prev"));
-    };
+    // Cleanup on unmount
+    return () => clearInterval(autoAdvanceTimer);
   }, []);
+
+  // Handle manual navigation
+  const handlePrev = () => {
+    setActiveIndex((current) => (current - 1 + totalSlides) % totalSlides);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((current) => (current + 1) % totalSlides);
+  };
+
+  // Content for slides
+  const slideContent = [
+    {
+      author: "LIC",
+      title: "Largest Insurer",
+      topic: "Achievement",
+      des: "LIC is the largest life insurer in India with a market share of over 70%.",
+      bgClass: "review-1",
+      thumbClass: "thumb-1",
+      thumbTitle: "Largest Insurer",
+      thumbDesc: "Market Leader",
+    },
+    {
+      author: "LIC",
+      title: "Extensive Network",
+      topic: "Achievement",
+      des: "LIC has an extensive network of over 2,000 branches and more than 1 million agents.",
+      bgClass: "review-2",
+      thumbClass: "thumb-2",
+      thumbTitle: "Extensive Network",
+      thumbDesc: "Wide Reach",
+    },
+    {
+      author: "LIC",
+      title: "Extensive Network",
+      topic: "Achievement",
+      des: "LIC has been awarded the 'Most Trusted Brand' in the insurance category for several years.",
+      bgClass: "review-3",
+      thumbClass: "thumb-3",
+      thumbTitle: "Customer Trust",
+      thumbDesc: "Most Trusted Brand",
+    },
+    {
+      author: "LIC",
+      title: "High Claim Settlement",
+      topic: "Achievement",
+      des: "LIC has a high claim settlement ratio, ensuring timely and hassle-free claim processing.",
+      bgClass: "review-4",
+      thumbClass: "thumb-4",
+      thumbTitle: "High Claim Settlement",
+      thumbDesc: "Reliable Service",
+    },
+  ];
 
   return (
     <div className="carousel">
+      {/* Main slider */}
       <div className="list">
-        <div className="item">
-          <div className="text-bg review-1"></div>
-          <div className="content">
-            <div className="author">LUNDEV</div>
-            <div className="title">DESIGN SLIDER</div>
-            <div className="topic">ANIMAL</div>
-            <div className="des">
-              "The design team exceeded my expectations with their creative approach to our project. Highly recommended for anyone looking for innovative solutions."
-            </div>
-            <div className="buttons">
-              <button>SEE MORE</button>
-              <button>SUBSCRIBE</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg review-2"></div>
-          <div className="content">
-            <div className="author">DEVTEAM</div>
-            <div className="title">NATURE BEAUTY</div>
-            <div className="topic">NATURE</div>
-            <div className="des">
-              "Explore the wonders of nature through stunning landscapes. Our team captured breathtaking scenery that will inspire your next adventure."
-            </div>
-            <div className="buttons">
-              <button>EXPLORE</button>
-              <button>LEARN MORE</button>
+        {slideContent.map((slide, index) => (
+          <div 
+            key={index}
+            className={`item ${index === activeIndex ? "active" : ""}`}
+            style={{ zIndex: index === activeIndex ? 1 : 0, opacity: index === activeIndex ? 1 : 0 }}
+          >
+            <div className={`text-bg ${slide.bgClass}`}></div>
+            <div className="content">
+              <div className="author">{slide.author}</div>
+              <div className="title">{slide.title}</div>
+              <div className="topic">{slide.topic}</div>
+              <div className="des">"{slide.des}"</div>
+              <div className="buttons">
+               
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg review-3"></div>
-          <div className="content">
-            <div className="author">TECHWORLD</div>
-            <div className="title">FUTURE TECH</div>
-            <div className="topic">TECHNOLOGY</div>
-            <div className="des">
-              "The future of innovation starts with groundbreaking technology. Our latest developments have revolutionized how businesses approach digital transformation."
-            </div>
-            <div className="buttons">
-              <button>DISCOVER</button>
-              <button>INNOVATE</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg review-4"></div>
-          <div className="content">
-            <div className="author">TRAVELERS</div>
-            <div className="title">ADVENTURE AWAITS</div>
-            <div className="topic">TRAVEL</div>
-            <div className="des">
-              "Join us on an unforgettable journey to breathtaking places. Our travel packages offer exclusive experiences that create memories lasting a lifetime."
-            </div>
-            <div className="buttons">
-              <button>BOOK NOW</button>
-              <button>WATCH MORE</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
+      {/* Thumbnails */}
       <div className="thumbnail">
-        <div className="item">
-          <div className="text-bg-thumb thumb-1"></div>
-          <div className="content">
-            <div className="title">DESIGN SLIDER</div>
-            <div className="description">Animal World</div>
+        {slideContent.map((slide, index) => (
+          <div 
+            key={index}
+            className={`item ${index === activeIndex ? "active-thumb" : ""}`}
+            onClick={() => setActiveIndex(index)}
+          >
+            <div className={`text-bg-thumb ${slide.thumbClass}`}></div>
+            <div className="content">
+              <div className="title">{slide.thumbTitle}</div>
+              <div className="description">{slide.thumbDesc}</div>
+            </div>
           </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg-thumb thumb-2"></div>
-          <div className="content">
-            <div className="title">NATURE BEAUTY</div>
-            <div className="description">Scenic Views</div>
-          </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg-thumb thumb-3"></div>
-          <div className="content">
-            <div className="title">FUTURE TECH</div>
-            <div className="description">Cutting-Edge Innovation</div>
-          </div>
-        </div>
-
-        <div className="item">
-          <div className="text-bg-thumb thumb-4"></div>
-          <div className="content">
-            <div className="title">ADVENTURE AWAITS</div>
-            <div className="description">Travel the World</div>
-          </div>
-        </div>
+        ))}
       </div>
 
+      {/* Navigation arrows */}
       <div className="arrows">
-        <button id="prev">&lt;</button>
-        <button id="next">&gt;</button>
+        <button onClick={handlePrev}>&lt;</button>
+        <button onClick={handleNext}>&gt;</button>
       </div>
 
-      <div className="time"></div>
+      {/* Progress indicator removed */}
     </div>
   );
 };

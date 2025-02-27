@@ -1,583 +1,239 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const ServiceSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const styles = {
+    glassSection: {
+      padding: '5rem 2rem',
+      position: 'relative',
+      background: 'linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy))',
+    },
+    glassContainer: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '2rem',
+    },
+    glassCard: {
+      background: 'rgba(255, 255, 255, 0.1)',
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
+      borderRadius: '15px',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      padding: '2rem',
+      color: 'white',
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      overflow: 'hidden',
+      position: 'relative',
+      height: '100%',
+    },
+    glassCardHover: {
+      transform: 'translateY(-10px)',
+      boxShadow: '0 15px 40px 0 rgba(0, 0, 0, 0.5)',
+    },
+    gradientCircle: {
+      position: 'absolute',
+      width: '150px',
+      height: '150px',
+      borderRadius: '50%',
+      background: 'linear-gradient(135deg, var(--gold), transparent)',
+      opacity: '0.15',
+      top: '-50px',
+      right: '-50px',
+      zIndex: '1',
+    },
+    cardBadge: {
+      position: 'absolute',
+      top: '1rem',
+      right: '1rem',
+      background: 'linear-gradient(to right, var(--navy), var(--dark-navy))',
+      color: 'white',
+      fontSize: '0.7rem',
+      fontWeight: '600',
+      padding: '0.3rem 0.8rem',
+      borderRadius: '20px',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      zIndex: '2',
+    },
+    cardIcon: {
+      fontSize: '2.5rem',
+      color: 'var(--gold)',
+      marginBottom: '1.5rem',
+      position: 'relative',
+      zIndex: '2',
+    },
+    cardTitle: {
+      fontSize: '1.5rem',
+      fontWeight: '600',
+      marginBottom: '1rem',
+      position: 'relative',
+      zIndex: '2',
+    },
+    cardContent: {
+      marginBottom: '1.5rem',
+      lineHeight: '1.6',
+      fontWeight: '300',
+      opacity: '0.9',
+      position: 'relative',
+      zIndex: '2',
+    },
+    cardButton: {
+      display: 'inline-block',
+      padding: '0.8rem 1.5rem',
+      background: 'linear-gradient(to right, var(--gold), #ffda85)',
+      color: 'var(--near-black)',
+      border: 'none',
+      borderRadius: '50px',
+      fontWeight: '600',
+      textDecoration: 'none',
+      transition: 'all 0.3s ease',
+      position: 'relative',
+      zIndex: '2',
+      cursor: 'pointer',
+    },
+    cardButtonHover: {
+      transform: 'translateY(-3px)',
+      boxShadow: '0 5px 15px rgba(255, 195, 0, 0.3)',
+    },
+    sectionTitle: {
+      marginBottom: '4rem',
+      color: 'white',
+      textAlign: 'center',
+    },
+    mediaQuery: {
+      '@media screen and (max-width: 768px)': {
+        glassContainer: {
+          gridTemplateColumns: '1fr',
+        },
+      },
+    },
+  };
 
-  const services = [
+  // Card data array - removed the last card (Total Life Protection)
+  const cards = [
     {
-      id: 1,
-      title: "Web Tech",
-      description: "Modern web development solutions using cutting-edge technologies and frameworks to create responsive, scalable applications.",
-      image: "1.png",
-      ctaText: "Enquire more"
+      badge: 'PREMIUM',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      ),
+      title: 'Premium Protection Plan',
+      content: 'Our most comprehensive coverage package. Includes extended protection for your home, auto, and personal belongings with priority claims processing.',
+      buttonText: 'Explore Plan',
     },
     {
-      id: 2,
-      title: "App Development",
-      description: "Native and cross-platform mobile applications with intuitive UX/UI and powerful backend integration for iOS and Android.",
-      image: "2.png",
-      ctaText: "Enquire more"
+      badge: 'POPULAR',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      ),
+      title: 'Home Shield Plus',
+      content: 'Advanced protection for your home and valuables. Includes coverage against natural disasters, theft, and damage with 24/7 emergency assistance.',
+      buttonText: 'Get Quote',
     },
     {
-      id: 3,
-      title: "Backend Development",
-      description: "Robust server-side solutions with secure APIs, database management, and scalable architecture for your digital products.",
-      image: "3.png",
-      ctaText: "Enquire more"
+      badge: 'NEW',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      ),
+      title: 'Drive Secure Elite',
+      content: 'Ultimate protection for your vehicles. Includes accident coverage, roadside assistance, rental reimbursement, and new car replacement benefit.',
+      buttonText: 'Learn More',
     },
     {
-      id: 4,
-      title: "Marketing",
-      description: "Strategic digital marketing campaigns to increase your brand visibility, engage customers, and drive conversion rates.",
-      image: "4.png",
-      ctaText: "Enquire more"
+      badge: 'FAMILY',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      ),
+      title: 'Family Health Complete',
+      content: 'Comprehensive health coverage for your entire family. Includes preventive care, hospital stays, prescription drugs, and specialized treatments.',
+      buttonText: 'Protect Your Family',
     },
     {
-      id: 5,
-      title: "Software Testing",
-      description: "Comprehensive quality assurance with automated and manual testing to ensure bug-free, reliable software products.",
-      image: "7.png",
-      ctaText: "Enquire more"
-    }
+      badge: 'BUSINESS',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      ),
+      title: 'Business Continuity Plan',
+      content: 'Protect your business against interruptions. Includes property damage, liability coverage, income protection, and employee benefits solutions.',
+      buttonText: 'Business Solutions',
+    },
   ];
 
-  const goToNext = () => {
-    if (!animating) {
-      setAnimating(true);
-      setActiveIndex((current) => (current === services.length - 1 ? 0 : current + 1));
-      setTimeout(() => setAnimating(false), 500);
-    }
-  };
+  // Card component
+  const GlassCard = ({ card }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+    const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
-  const goToPrev = () => {
-    if (!animating) {
-      setAnimating(true);
-      setActiveIndex((current) => (current === 0 ? services.length - 1 : current - 1));
-      setTimeout(() => setAnimating(false), 500);
-    }
+    return (
+      <div
+        style={{
+          ...styles.glassCard,
+          ...(isHovered ? styles.glassCardHover : {}),
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div style={styles.gradientCircle}></div>
+        <div style={styles.cardBadge}>{card.badge}</div>
+        <div style={styles.cardIcon}>{card.icon}</div>
+        <h3 style={styles.cardTitle}>{card.title}</h3>
+        <p style={styles.cardContent}>{card.content}</p>
+        <a
+          href="#"
+          style={{
+            ...styles.cardButton,
+            ...(isButtonHovered ? styles.cardButtonHover : {}),
+          }}
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
+        >
+          {card.buttonText}
+        </a>
+      </div>
+    );
   };
-
-  const goToSlide = (index) => {
-    if (!animating && index !== activeIndex) {
-      setAnimating(true);
-      setActiveIndex(index);
-      setTimeout(() => setAnimating(false), 500);
-    }
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!animating) {
-        goToNext();
-      }
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [animating]);
 
   return (
-    <div className="services-section">
-      <h1 className="services-heading">Our Services</h1>
-      
-      <div className="slider-container">
-        <button className="slider-arrow slider-arrow-left" onClick={goToPrev}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 19L8 12L15 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        <div className="slider-content">
-          {services.map((service, index) => (
-            <div 
-              key={service.id}
-              className={`slide ${index === activeIndex ? 'active' : ''}`}
-              style={{ transform: `translateX(${(index - activeIndex) * 100}%)` }}
-            >
-              <div className="slide-inner">
-                <div className="slide-left">
-                  <div className="service-illustration">
-                    <div className="service-image-container">
-                      <img 
-                        src={service.image} 
-                        alt={service.title} 
-                        className="service-image"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="slide-right">
-                  <h2 className="service-title">{service.title}</h2>
-                  <p className="service-description">{service.description}</p>
-                  <button className="enquire-btn">{service.ctaText}</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <button className="slider-arrow slider-arrow-right" onClick={goToNext}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 5L16 12L9 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+    <section style={styles.glassSection}>
+      <div style={styles.sectionTitle}>
+        <h2>Premium Insurance Packages</h2>
       </div>
-      
-      <div className="slider-tabs">
-        {services.map((service, index) => (
-          <div 
-            key={service.id}
-            className={`tab ${index === activeIndex ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-          >
-            {service.title}
-          </div>
+      <div style={styles.glassContainer}>
+        {cards.map((card, index) => (
+          <GlassCard key={index} card={card} />
         ))}
       </div>
-      
-      <style jsx>{`
-        .services-section {
-          position: relative;
-          width: 100%;
-          padding: 4rem 0 5rem;
-          background: linear-gradient(135deg, #1f2b7b 0%, #0d1032 60%, #000 100%);
-          color: white;
-          overflow: hidden;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        
-        .services-heading {
-          font-size: 4rem;
-          font-weight: 800;
-          text-align: center;
-          margin-bottom: 4rem;
-          animation: fadeIn 1s ease-in-out;
-          text-shadow: 0 2px 10px rgba(140, 82, 255, 0.3);
-          letter-spacing: 1px;
-        }
-        
-        .slider-container {
-          width: 100%;
-          max-width: 1400px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 2rem;
-          margin-bottom: 3rem;
-          height: 500px;
-        }
-        
-        .slider-arrow {
-          position: absolute;
-          height: 60px;
-          width: 60px;
-          border-radius: 50%;
-          background: rgba(140, 82, 255, 0.2);
-          border: 2px solid rgba(140, 82, 255, 0.3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          z-index: 10;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .slider-arrow:hover {
-          background: rgba(140, 82, 255, 0.4);
-          transform: scale(1.05);
-        }
-        
-        .slider-arrow:active {
-          transform: scale(0.98);
-        }
-        
-        .slider-arrow-left {
-          left: 30px;
-        }
-        
-        .slider-arrow-right {
-          right: 30px;
-        }
-        
-        .slider-content {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          overflow: hidden;
-          border-radius: 16px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          background: rgba(255, 255, 255, 0.02);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .slide {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-          opacity: 0;
-        }
-        
-        .slide.active {
-          opacity: 1;
-        }
-        
-        .slide-inner {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 2rem 3rem;
-        }
-        
-        .slide-left {
-          width: 45%;
-          position: relative;
-          z-index: 2;
-        }
-        
-        .slide-right {
-          width: 50%;
-          padding-left: 3rem;
-          position: relative;
-          z-index: 2;
-        }
-        
-        .service-illustration {
-          position: relative;
-          width: 100%;
-          height: 350px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          perspective: 1200px;
-        }
-        
-        .service-image-container {
-          position: relative;
-          width: 400px;
-          height: 300px;
-          z-index: 2;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-          transform: perspective(1000px) rotateY(-15deg);
-          transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-          border: 2px solid rgba(140, 82, 255, 0.2);
-        }
-        
-        .service-image-container:hover {
-          transform: perspective(1000px) rotateY(0);
-        }
-        
-        .service-image-container::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(135deg, rgba(140, 82, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-          z-index: 3;
-          pointer-events: none;
-        }
-        
-        .service-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.7s ease;
-          filter: brightness(0.9) contrast(1.1);
-        }
-        
-        .slide.active .service-image {
-          animation: zoomImage 10s infinite alternate ease-in-out;
-        }
-        
-        @keyframes zoomImage {
-          0% {
-            transform: scale(1);
-          }
-          100% {
-            transform: scale(1.1);
-          }
-        }
-        
-        .service-title {
-          font-size: 3.5rem;
-          font-weight: 800;
-          margin-bottom: 1.8rem;
-          animation: fadeSlideUp 0.8s ease-out;
-          background: linear-gradient(90deg, #ffffff, #c4b5fd);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          letter-spacing: 0.5px;
-          position: relative;
-        }
-        
-        .service-title::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -10px;
-          width: 80px;
-          height: 4px;
-          background: rgb(140, 82, 255);
-          border-radius: 2px;
-        }
-        
-        .service-description {
-          font-size: 1.2rem;
-          line-height: 1.8;
-          margin-bottom: 2.5rem;
-          animation: fadeSlideUp 0.8s ease-out 0.2s both;
-          color: rgba(255, 255, 255, 0.9);
-          max-width: 90%;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .enquire-btn {
-          padding: 1rem 2.5rem;
-          background: rgb(140, 82, 255);
-          border: none;
-          color: white;
-          font-size: 1.1rem;
-          font-weight: 600;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: all 0.4s ease;
-          animation: fadeSlideUp 0.8s ease-out 0.4s both;
-          position: relative;
-          overflow: hidden;
-          letter-spacing: 0.5px;
-          box-shadow: 0 10px 20px rgba(140, 82, 255, 0.3);
-        }
-        
-        .enquire-btn::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: 0.5s;
-        }
-        
-        .enquire-btn:hover {
-          background: rgb(116, 58, 231);
-          transform: translateY(-3px);
-          box-shadow: 0 15px 25px rgba(116, 58, 231, 0.4);
-        }
-        
-        .enquire-btn:hover::before {
-          left: 100%;
-        }
-        
-        .enquire-btn:active {
-          transform: translateY(0);
-        }
-        
-        .slider-tabs {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          padding-top: 2rem;
-          gap: 0.5rem;
-        }
-        
-        .tab {
-          padding: 0.6rem 1.2rem;
-          font-size: 1rem;
-          color: rgba(255, 255, 255, 0.7);
-          cursor: pointer;
-          transition: all 0.3s ease;
-          position: relative;
-          text-align: center;
-          border-radius: 6px;
-          margin: 0.3rem;
-        }
-        
-        .tab:hover {
-          color: white;
-          background: rgba(140, 82, 255, 0.1);
-        }
-        
-        .tab.active {
-          color: white;
-          font-weight: 600;
-          background: rgba(140, 82, 255, 0.15);
-        }
-        
-        .tab.active::after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 30px;
-          height: 3px;
-          background: rgb(140, 82, 255);
-          border-radius: 3px;
-        }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        
-        @keyframes fadeSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @media (max-width: 1200px) {
-          .slider-container {
-            height: 450px;
-          }
-          
-          .service-image-container {
-            width: 350px;
-            height: 280px;
-          }
-          
-          .service-title {
-            font-size: 3rem;
-          }
-        }
-        
-        @media (max-width: 992px) {
-          .slide-inner {
-            flex-direction: column;
-            padding: 2rem;
-          }
-          
-          .slide-left, .slide-right {
-            width: 100%;
-            padding: 0;
-          }
-          
-          .slide-left {
-            margin-bottom: 2rem;
-          }
-          
-          .slider-container {
-            height: auto;
-            padding-bottom: 2rem;
-            min-height: 650px;
-          }
-          
-          .service-image-container {
-            width: 320px;
-            height: 240px;
-            transform: perspective(1000px) rotateY(0);
-          }
-          
-          .service-title {
-            font-size: 2.5rem;
-            text-align: center;
-          }
-          
-          .service-title::after {
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          
-          .service-description {
-            text-align: center;
-            max-width: 100%;
-          }
-          
-          .slide-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .services-heading {
-            font-size: 3rem;
-          }
-          
-          .slider-arrow {
-            width: 45px;
-            height: 45px;
-          }
-          
-          .slider-arrow-left {
-            left: 15px;
-          }
-          
-          .slider-arrow-right {
-            right: 15px;
-          }
-        }
-        
-        @media (max-width: 576px) {
-          .services-heading {
-            font-size: 2.5rem;
-          }
-          
-          .service-title {
-            font-size: 2rem;
-          }
-          
-          .service-illustration {
-            height: 220px;
-          }
-          
-          .service-image-container {
-            width: 260px;
-            height: 200px;
-          }
-          
-          .slider-arrow {
-            width: 40px;
-            height: 40px;
-          }
-          
-          .service-description {
-            font-size: 1rem;
-          }
-          
-          .enquire-btn {
-            padding: 0.8rem 2rem;
-          }
-          
-          .slider-tabs {
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
-          
-          .tab {
-            font-size: 0.9rem;
-            padding: 0.5rem 0.8rem;
-          }
-        }
-      `}</style>
-    </div>
+    </section>
   );
 };
+
+// CSS variables need to be defined at a global level in your application
+// Add this to your global CSS or include it in your component's parent file:
+/*
+:root {
+  --near-black: #121212;
+  --dark-navy: #0a192f;
+  --navy: #112240;
+  --gold: #ffc300;
+}
+*/
 
 export default ServiceSection;

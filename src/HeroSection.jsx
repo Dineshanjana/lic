@@ -32,16 +32,15 @@ const HeroSection = () => {
       <div className="hero-container">
         <div className="hero-text">
           <h1 className="hero-title">
-            National Portal for Credit-Linked Government Schemes
-          </h1>
-          <p className="hero-description">
-            One-stop digital portal linking Government Schemes. Check your
-            eligibility, apply online and get digital approval.
+          Empowering You with Credit-Linked Government Schemes
+
+        </h1>
+          <p className="hero-description">Welcome! I’m Vishal, committed to helping you navigate and access government-backed financial assistance with ease. Our digital portal ensures a seamless experience—check your eligibility, apply online, and receive instant digital approval.Discover a seamless way to access government-backed financial assistance. Our all-in-one digital portal simplifies the process—check eligibility, apply online, and receive instant digital approval.
           </p>
           <div className="hero-stats">
             <div>
               <p className="hero-number">{schemes}</p>
-              <p className="hero-label">Schemes</p>
+              <p className="hero-label"> Government Schemes</p>
             </div>
             <div>
               <p className="hero-number">{loanCategories}</p>
@@ -49,7 +48,7 @@ const HeroSection = () => {
             </div>
             <div>
               <p className="hero-number">{lenders}+</p>
-              <p className="hero-label">Lenders on Platform</p>
+              <p className="hero-label">Trusted Lenders</p>
             </div>
           </div>
         </div>

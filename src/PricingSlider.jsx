@@ -108,17 +108,18 @@ const PricingSlider = () => {
   const allCards = [...pricingData, ...pricingData, ...pricingData];
 
   return (
-    <div className="slider-outer-container">
+    <div className="pslider-outer-container">
+      <h1 className=" pslider-plans-heading">All Preferable Plans</h1>
       <button 
-        className={`nav-button left ${!canScrollLeft ? 'hidden' : ''}`}
+        className={`pslider-nav-button left ${!canScrollLeft ? 'hidden' : ''}`}
         onClick={() => scroll('left')}
         aria-label="Previous"
       >
-        <span className="arrow-icon">←</span>
+        <span className="pslider-arrow-icon">←</span>
       </button>
       
       <div 
-        className="cards-container" 
+        className="pslider-cards-container" 
         ref={sliderRef}
         onScroll={checkScroll}
         onMouseDown={handleMouseDown}
@@ -129,15 +130,15 @@ const PricingSlider = () => {
       >
         {allCards.map((plan, index) => (
           <div key={index} className={`pricing-card ${plan.className}`}>
-            <img src={plan.image} alt="Plan" className="plan-image" />
-            <h2 className="title">{plan.title}</h2>
-            <p className="description">{plan.description}</p>
-            <button className={`cta-button ${plan.buttonVariant}`}>
+            <img src={plan.image} alt="Plan" className="pslider-plan-image" />
+            <h2 className="pslider-title">{plan.title}</h2>
+            <p className="pslider-description">{plan.description}</p>
+            <button className={`pslider-cta-button ${plan.buttonVariant}`}>
               {plan.buttonText}
             </button>
-            <div className="features">
+            <div className="pslider-features">
               {plan.features.map((feature, idx) => (
-                <div key={idx} className="feature">
+                <div key={idx} className="fpslider-eature">
                   <CheckIcon />
                   <span>{feature}</span>
                 </div>
@@ -148,11 +149,11 @@ const PricingSlider = () => {
       </div>
 
       <button 
-        className={`nav-button right ${!canScrollRight ? 'hidden' : ''}`}
+        className={`pslider-nav-button right ${!canScrollRight ? 'hidden' : ''}`}
         onClick={() => scroll('right')}
         aria-label="Next"
       >
-        <span className="arrow-icon">→</span>
+        <span className="pslider-arrow-icon">→</span>
       </button>
     </div>
   );

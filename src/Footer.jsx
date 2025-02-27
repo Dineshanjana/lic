@@ -1,139 +1,125 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import React from 'react';
 
 const Footer = () => {
-  const [hoveredIcon, setHoveredIcon] = useState(null);
-
-  const footerStyle = {
-    marginTop:'20px',
-    backgroundColor: '#ff9934',
-    padding: '20px 40px',
-    color: '#ffffff',
-    fontFamily: 'Arial, sans-serif',
-  };
-
-  const footerContent = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    maxWidth: '1200px',
-    margin: '0 auto',
-  };
-
-  const footerLeft = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '20px',
-    width: '90%',
-  };
-
-  const footerLogo = {
-    width: '30px',
-    height: 'auto',
-    fontSize: '24px',
-  };
-
-  const footerNav = {
-    display: 'flex',
-    gap: '20px',
-    marginLeft: 'auto',
-  };
-
-  const navLink = {
-    color: '#ffffff',
-    textDecoration: 'none',
-    fontSize: '19px',
-  };
-
-  const copyright = {
-    fontSize: '19px',
-    color: 'white',
-    margin: '10px 0',
-  };
-
-  const socialIcons = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '15px',
-    fontSize: '19px',
-    margin: '10px 0',
-  };
-
-  const getSocialLinkStyle = (iconName) => ({
-    color: hoveredIcon === iconName ? '#230e76' : '#ffffff',
-    textDecoration: 'none',
-    fontSize: '18px',
-    position: 'relative',
-    transition: 'color 0.3s ease, transform 0.3s ease',
-    transform: hoveredIcon === iconName ? 'scale(1.2)' : 'scale(1)',
-    cursor: 'pointer',
-  });
-
-  const madeInPrimer = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-    fontSize: '15px',
-    marginLeft: 'auto',
-  };
-
   return (
-    <footer style={footerStyle}>
-      <div style={footerContent}>
-        <div style={footerLeft}>
-          <div style={footerLogo}>VInsauranceLic</div>
-          <nav style={footerNav}>
-            <a href="/lessons" style={navLink}>Lessons</a>
-            <a href="/resources" style={navLink}>Resources</a>
-            <a href="/blog" style={navLink}>Blog</a>
-            <a href="/support" style={navLink}>Support</a>
-            <a href="/about" style={navLink}>About</a>
-            <a href="/contact" style={navLink}>Contact</a>
-          </nav>
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-column">
+          <h3>Insurance Products</h3>
+          <ul>
+            <li><a href="#">Home Insurance</a></li>
+            <li><a href="#">Auto Insurance</a></li>
+            <li><a href="#">Health Insurance</a></li>
+            <li><a href="#">Life Insurance</a></li>
+            <li><a href="#">Business Insurance</a></li>
+          </ul>
         </div>
-        <div style={madeInPrimer}>
-          Made in Primer
+        <div className="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Insurance Guides</a></li>
+            <li><a href="#">Claims Process</a></li>
+            <li><a href="#">Coverage Calculator</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
         </div>
+        <div className="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div className="footer-column">
+          <h3>Contact</h3>
+          <ul>
+            <li>123 Insurance Ave.</li>
+            <li>New York, NY 10001</li>
+            <li>(800) 123-4567</li>
+            <li>support@secureshield.com</li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} SecureShield Insurance. All rights reserved.</p>
       </div>
 
-      <div style={copyright}>
-        Copyright © 2024 Primer University.<br />
-        All rights reserved.
-      </div>
-
-      <div style={socialIcons}>
-        <a 
-          href="#" 
-          aria-label="Twitter" 
-          style={getSocialLinkStyle('twitter')}
-          onMouseEnter={() => setHoveredIcon('twitter')}
-          onMouseLeave={() => setHoveredIcon(null)}
-        >
-          <FontAwesomeIcon icon={faTwitter} />
-        </a>
-        <span style={{ color: '#666', margin: '0 10px' }}>/</span>
-        <a 
-          href="#" 
-          aria-label="YouTube" 
-          style={getSocialLinkStyle('youtube')}
-          onMouseEnter={() => setHoveredIcon('youtube')}
-          onMouseLeave={() => setHoveredIcon(null)}
-        >
-          <FontAwesomeIcon icon={faYoutube} />
-        </a>
-        <span style={{ color: '#666', margin: '0 10px' }}>/</span>
-        <a 
-          href="#" 
-          aria-label="Instagram" 
-          style={getSocialLinkStyle('instagram')}
-          onMouseEnter={() => setHoveredIcon('instagram')}
-          onMouseLeave={() => setHoveredIcon(null)}
-        >
-          <FontAwesomeIcon icon={faInstagram} />
-        </a>
-      </div>
+      <style jsx>{`
+        /* CSS Variables */
+        :root {
+          --near-black: #000814;
+          --gold: #ffc300;
+          --dark-navy: #001d3d;
+          --navy: #003566;
+        }
+        
+        .footer {
+          background-color: var(--near-black);
+          color: #fff;
+          padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+        }
+        
+        .footer-column h3 {
+          color: var(--gold);
+          margin-bottom: 1.5rem;
+          font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+          list-style: none;
+          padding: 0;
+        }
+        
+        .footer-column ul li {
+          margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+          color: white;
+          opacity: 0.8;
+          text-decoration: none;
+          transition: opacity 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+          opacity: 1;
+          color: var(--gold);
+        }
+        
+        .footer-bottom {
+          max-width: 1200px;
+          margin: 3rem auto 0;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
+          font-size: 0.9rem;
+          opacity: 0.6;
+        }
+        
+        @media screen and (max-width: 768px) {
+          .footer-content {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        
+        @media screen and (max-width: 480px) {
+          .footer-content {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </footer>
   );
 };

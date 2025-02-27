@@ -1,5 +1,5 @@
 .hero-section {
-  background-color: #2c2f77;
+  background-color: var(--navy);
   color: white;
   padding: 4rem 2rem;
   display: flex;

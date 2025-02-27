@@ -2,7 +2,7 @@
 
 .carousel {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -12,6 +12,7 @@
     height: 100%;
     position: absolute;
     inset: 0 0 0 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Replace images with colored backgrounds and text */
@@ -66,6 +67,7 @@
 .thumb-4 {
     background: linear-gradient(135deg, #5f2c82, #49a09d);
 }
+
 
 .carousel .list .item .content {
     position: absolute;
@@ -127,11 +129,12 @@
 .thumbnail {
     position: absolute;
     bottom: 50px;
-    left: 50%;
+    left: 77%;
     width: max-content;
     z-index: 100;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    transform: translateX(-50%);
 }
 
 .thumbnail .item {
@@ -139,6 +142,13 @@
     height: 220px;
     flex-shrink: 0;
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail .item.active-thumb {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .thumbnail .item .content {
@@ -159,26 +169,26 @@
 
 .arrows {
     position: absolute;
-    top: 80%;
-    right: 52%;
+    top: 50%;
+    left: 50%;
     z-index: 100;
-    width: 300px;
-    max-width: 30%;
+    width: 90%;
     display: flex;
-    gap: 10px;
-    align-items: center;
+    justify-content: space-between;
+    transform: translate(-50%, -50%);
 }
 
 .arrows button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #eee4;
+    background-color: rgba(255, 255, 255, 0.3);
     border: none;
     color: #fff;
     font-family: monospace;
     font-weight: bold;
-    transition: .5s;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .arrows button:hover {
@@ -186,20 +196,16 @@
     color: #000;
 }
 
-.carousel .time {
+/* .carousel .time {
     position: absolute;
     z-index: 1000;
-    width: 0%;
+    width: 100%;
     height: 3px;
-    /* background-color: #f1683a; */
+    background-color: #f1683a;
     left: 0;
     top: 0;
-}
-
-.carousel.next .time,
-.carousel.prev .time {
-    animation: runningTime 3s linear 1 forwards;
-}
+    animation: runningTime 7s linear infinite;
+} */
 
 @keyframes runningTime {
     from { width: 100%; }
@@ -224,8 +230,9 @@
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  .carousel .list .item .title,
+  .carousel .list .item .topic {
+    font-size: 3em;
   }
 
   .hero-description {
@@ -237,29 +244,28 @@
     gap: 1rem;
   }
 
-  .hero-number {
-    font-size: 1.5rem;
-  }
-
-  .hero-label {
-    font-size: 0.875rem;
+  .arrows {
+    width: 80%;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.5rem;
+  .carousel .list .item .title,
+  .carousel .list .item .topic {
+    font-size: 2em;
   }
 
-  .hero-description {
-    font-size: 0.875rem;
+  .carousel .list .item .des {
+    font-size: 1em;
   }
 
-  .hero-number {
-    font-size: 1.25rem;
+  .thumbnail {
+    bottom: 20px;
+    gap: 10px;
   }
 
-  .hero-label {
-    font-size: 0.75rem;
+  .thumbnail .item {
+    width: 100px;
+    height: 150px;
   }
 }

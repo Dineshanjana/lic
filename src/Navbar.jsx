@@ -14,6 +14,7 @@ const NavLink = ({ to, children, onMouseEnter, onMouseLeave }) => (
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showSubDropdown, setShowSubDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -33,7 +34,7 @@ const Navbar = () => {
         </div>
 
         <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <div 
             className="dropdown-container"
             onMouseEnter={() => setShowDropdown(true)}
@@ -42,11 +43,26 @@ const Navbar = () => {
             <NavLink to="/schemes">Schemes <span className="dropdown-arrow">▼</span></NavLink>
             {showDropdown && (
               <div className="dropdown-menu">
-                <Link to="/schemes/insurance" className="dropdown-item">Insurance Plans</Link>
-                <Link to="/schemes/pension" className="dropdown-item">Pension Plans</Link>
-                <Link to="/schemes/linked" className="dropdown-item">Unit Linked Plans</Link>
-                <Link to="/schemes/micro" className="dropdown-item">Micro Insurance Plans</Link>
-                <Link to="/schemes/withdrawn" className="dropdown-item">Withdrawn Plans</Link>
+                <div 
+                  className="dropdown-item"
+                  onMouseEnter={() => setShowSubDropdown(true)}
+                  onMouseLeave={() => setShowSubDropdown(false)}
+                >
+                  Insurance Plans <span className="dropdown-arrow">▶</span>
+                  {showSubDropdown && (
+                    <div className="sub-dropdown-menu">
+                      <Link to="/Edow" className="dropdown-item">Endowment Plans</Link>
+                      <Link to="/WholeLife" className="dropdown-item">Whole Life Plans</Link>
+                      <Link to="/MoneyBack" className="dropdown-item">Money Back Plans</Link>
+                      <Link to="/Term" className="dropdown-item">Term Assurance Plans </Link>
+                      <Link to="/Riders" className="dropdown-item">Riders Plans </Link>
+                    </div>
+                  )}
+                </div>
+                <Link to="/pension" className="dropdown-item">Pension Plans</Link>
+                <Link to="/Unit" className="dropdown-item">Unit Linked Plans</Link>
+                <Link to="/Micro" className="dropdown-item">Micro Insurance Plans</Link>
+                <Link to="/Withdrawn" className="dropdown-item">Withdrawn Plans</Link>
               </div>
             )}
           </div>
@@ -57,19 +73,20 @@ const Navbar = () => {
         
         <div className="auth-buttons">
           <Link to="/login" className="login-btn">Login</Link>
-          <Link to="/register" className="register-btn">Register</Link>
+         
           
         </div>
       </nav>
 
       <style jsx>{`
         .navbar-container {
+        color:white;;
           position: fixed;
           top: 0;
           left: 0;
           width: 100%;
-          background-color: white;
-          border-bottom: 1px solid #eaeaea;
+         background-color: var(--near-black);
+         
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
           z-index: 1000;
           animation: slideDown 0.5s ease-out;
@@ -118,7 +135,7 @@ const Navbar = () => {
 
         .nav-link {
           text-decoration: none;
-          color: #333 !important;
+         color:white;!important;
           font-size: 20px;
           font-weight: 500;
           opacity: 0;
@@ -135,8 +152,8 @@ const Navbar = () => {
         .nav-links > *:nth-child(5) { animation-delay: 0.6s; }
 
         .nav-link:hover {
-          color: #1a56db !important;
-          text-decoration: none;
+      color: var(--gold);!important;
+          text-decoration: underline;
         }
 
         .dropdown-arrow {
@@ -176,7 +193,22 @@ const Navbar = () => {
 
         .dropdown-item:hover {
           background-color: #f8f9fa;
-          color: #1a56db;
+          color:  #ffc300;;
+        }
+
+        .sub-dropdown-menu {
+          position: absolute;
+          top: 0;
+          left: 100%;
+          background-color: white;
+          min-width: 200px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          padding: 0.5rem 0;
+          z-index: 1002;
+          opacity: 0;
+          transform: translateY(-10px);
+          animation: dropdownFade 0.3s ease-out forwards;
         }
 
         .auth-buttons {
@@ -186,10 +218,10 @@ const Navbar = () => {
         }
 
         .login-btn {
-          border: 1px solid #1a56db;
+          border: 1px solid # #ffc300;;
           border-radius: 4px;
           padding: 0.5rem 1.25rem;
-          color: #1a56db !important;
+          color:rgb(253, 251, 251) !important;
           text-decoration: none;
           font-size:20px;
           font-weight: 500;
@@ -199,27 +231,11 @@ const Navbar = () => {
         }
 
         .login-btn:hover {
-          background-color: #f0f4ff;
+          background-color:  #ffc300;;
           transform: translateY(-2px);
         }
 
-        .register-btn {
-        font-size:20px;
-          background-color: #2a41cb;
-          border-radius: 4px;
-          padding: 0.5rem 1.25rem;
-          color: white !important;
-          text-decoration: none;
-          font-weight: 500;
-          opacity: 0;
-          animation: fadeIn 0.5s ease-out 0.8s forwards;
-          transition: all 0.3s ease;
-        }
-
-        .register-btn:hover {
-          background-color: #1e3a8a;
-          transform: translateY(-2px);
-        }
+        
 
         .language-selector {
           margin-left: 0.75rem;
