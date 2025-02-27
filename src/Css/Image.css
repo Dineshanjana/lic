@@ -6,8 +6,7 @@
   box-sizing: border-box;
   font-family: "Jost", sans-serif;
 }
-
-.slider-container {
+.slider-container{
   width: 100%;
   height: 100vh;
   background-image: url('Images/bg-img.png');
@@ -18,31 +17,38 @@
   align-items: center;
   justify-content: center;
 }
-
-.slider-images {
+.slider-images{
   display: flex;
   align-items: center;
   gap: 21px;
+<<<<<<< HEAD
   overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
   padding: 0 10px; /* Add padding to avoid content touching the edges */
   width: 100%; /* Ensure the slider images take up 100% width */
+=======
+>>>>>>> 60624904414d8acc090c4027dfb058763ed60f27
 }
-
-.slider-images img {
+.slider-images img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 6px;
 }
+<<<<<<< HEAD
 
 .slider-img {
   flex: 1 1 auto;
   max-width: 100%;
+=======
+.slider-img{
+  width: 110px;
+>>>>>>> 60624904414d8acc090c4027dfb058763ed60f27
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   transition: 0.7s ease;
 }
+<<<<<<< HEAD
 
 .slider-img.active {
   width: 100% !important;
@@ -56,9 +62,18 @@
 .slider-img.active .details p,
 .slider-img.active .details h2 {
   display: block;
+=======
+.slider-images .slider-img:first-child, .slider-images .slider-img:last-child{
+  height: 480px;
 }
-
-.item-name {
+.slider-images .slider-img:nth-child(2), .slider-images .slider-img:nth-child(6){
+  height: 560px;
+}
+.slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5){
+  height: 665px;
+>>>>>>> 60624904414d8acc090c4027dfb058763ed60f27
+}
+.item-name{
   font-family: "Jost", sans-serif;
   font-size: 40px;
   font-weight: 700;
@@ -71,14 +86,12 @@
   transform: rotate(270deg);
   transition: 0.7s ease;
 }
-
-.details {
+.details{
   position: absolute;
   bottom: 43px;
   left: 43px;
 }
-
-.details h2 {
+.details h2{
   font-family: "Jost", sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -90,8 +103,7 @@
   transition: 0.7s ease;
   display: none;
 }
-
-.details p {
+.details p{
   font-family: "Jost", sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -103,6 +115,7 @@
   transition: 0.7s ease;
   display: none;
 }
+<<<<<<< HEAD
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
@@ -167,4 +180,15 @@
   .details p {
     font-size: 14px;
   }
+=======
+.slider-img.active{
+  width: 766px !important;
+  height: 750px !important;
+}
+.slider-img.active h1{
+   display: none;
+}
+.slider-img.active .details p, .slider-img.active .details h2{
+  display: block;
+>>>>>>> 60624904414d8acc090c4027dfb058763ed60f27
 }
