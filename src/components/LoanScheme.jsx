@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/LoanScheme.css';
+import '../Css/LoanScheme.css';
 const SchemeCard = ({ 
   title, 
   schemes, 

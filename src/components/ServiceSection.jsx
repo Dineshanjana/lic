@@ -108,9 +108,80 @@ const ServiceSection = () => {
         },
       },
     },
+    // New styles for the "View More" card
+    viewMoreCard: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15))',
+    },
+    viewMoreIcon: {
+      position: 'relative',
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      background: 'rgba(255, 255, 255, 0.1)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: '1.5rem',
+      overflow: 'hidden',
+    },
+    iconRipple: {
+      position: 'absolute',
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      border: '2px solid var(--gold)',
+      animation: 'ripple 2s infinite ease-out',
+    },
+    largeIconRipple: {
+      position: 'absolute',
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      border: '2px solid var(--gold)',
+      animation: 'rippleLarge 2s infinite ease-out',
+      animationDelay: '0.5s',
+    },
+    '@keyframes ripple': {
+      '0%': {
+        transform: 'scale(1)',
+        opacity: 0.7,
+      },
+      '100%': {
+        transform: 'scale(1.5)',
+        opacity: 0,
+      },
+    },
+    '@keyframes rippleLarge': {
+      '0%': {
+        transform: 'scale(1)',
+        opacity: 0.5,
+      },
+      '100%': {
+        transform: 'scale(2)',
+        opacity: 0,
+      },
+    },
+    pulseButton: {
+      animation: 'pulse 2s infinite',
+    },
+    '@keyframes pulse': {
+      '0%': {
+        boxShadow: '0 0 0 0 rgba(255, 195, 0, 0.4)',
+      },
+      '70%': {
+        boxShadow: '0 0 0 10px rgba(255, 195, 0, 0)',
+      },
+      '100%': {
+        boxShadow: '0 0 0 0 rgba(255, 195, 0, 0)',
+      },
+    },
   };
 
-  // Card data array - removed the last card (Total Life Protection)
   const cards = [
     {
       badge: 'PREMIUM',
@@ -211,6 +282,58 @@ const ServiceSection = () => {
     );
   };
 
+  // View More Card component with animations
+  const ViewMoreCard = () => {
+    const [isHovered, setIsHovered] = React.useState(false);
+    const [isButtonHovered, setIsButtonHovered] = React.useState(false);
+
+    // Use inline styles to handle animations that depend on React state
+    const cardStyle = {
+      ...styles.glassCard,
+      ...styles.viewMoreCard,
+      ...(isHovered ? styles.glassCardHover : {}),
+    };
+
+    return (
+      <div
+        style={cardStyle}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div style={styles.gradientCircle}></div>
+        <div style={styles.cardBadge}>MORE</div>
+        
+        <div style={styles.viewMoreIcon}>
+          <div style={styles.iconRipple}></div>
+          <div style={styles.largeIconRipple}></div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        
+        <h3 style={styles.cardTitle}>Discover More Plans</h3>
+        <p style={styles.cardContent}>
+          We offer a wide range of customized insurance solutions to meet your specific needs. 
+          Explore our full catalog of protection plans and find the perfect coverage for you.
+        </p>
+        
+        <a
+          href="#"
+          style={{
+            ...styles.cardButton,
+            ...(isButtonHovered ? styles.cardButtonHover : {}),
+            ...(isHovered ? styles.pulseButton : {}), // Add pulse animation when card is hovered
+          }}
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
+        >
+          View All Plans
+        </a>
+      </div>
+    );
+  };
+
   return (
     <section style={styles.glassSection}>
       <div style={styles.sectionTitle}>
@@ -220,20 +343,49 @@ const ServiceSection = () => {
         {cards.map((card, index) => (
           <GlassCard key={index} card={card} />
         ))}
+        <ViewMoreCard />
       </div>
+
+      {/* Adding keyframes styles for animations */}
+      <style>
+        {`
+          @keyframes ripple {
+            0% {
+              transform: scale(1);
+              opacity: 0.7;
+            }
+            100% {
+              transform: scale(1.5);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes rippleLarge {
+            0% {
+              transform: scale(1);
+              opacity: 0.5;
+            }
+            100% {
+              transform: scale(2);
+              opacity: 0;
+            }
+          }
+          
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.4);
+            }
+            70% {
+              box-shadow: 0 0 0 10px rgba(255, 195, 0, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(255, 195, 0, 0);
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };
-
-// CSS variables need to be defined at a global level in your application
-// Add this to your global CSS or include it in your component's parent file:
-/*
-:root {
-  --near-black: #121212;
-  --dark-navy: #0a192f;
-  --navy: #112240;
-  --gold: #ffc300;
-}
-*/
 
 export default ServiceSection;

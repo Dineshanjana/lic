@@ -1,17 +1,22 @@
 .pslider-outer-container {
   position: relative;
   width: 100%;
-  max-width: 1500px;
   margin: 0 auto;
-  padding: 40px 60px;
+  padding: 40px 0;
   background-color: var(--light-navy);
+}
+
+.pslider-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px; /* Add padding for content */
 }
 
 .pslider-cards-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 32px; /* Increased gap between cards */
+  gap: 40px; /* Increased gap between cards */
   padding: 30px;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -118,14 +123,27 @@
 }
 
 .pslider-nav-button {
+  background-color: #001d3d36;
+  color: white;
+  border: 1px solid #ffc30082;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  border: none;
+  background: rgba(0, 0, 0, 0.5);
   font-size: 24px;
   cursor: pointer;
   z-index: 1;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.pslider-nav-button:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .pslider-nav-button.left {
@@ -147,7 +165,7 @@
 /* Media Queries */
 @media (max-width: 1024px) {
   .pslider-outer-container {
-    padding: 20px 40px;
+    padding: 20px 0;
   }
 
   .pricing-card {
@@ -165,7 +183,7 @@
 
 @media (max-width: 768px) {
   .pslider-outer-container {
-    padding: 20px 20px;
+    padding: 20px 0;
   }
 
   .pricing-card {
@@ -183,7 +201,7 @@
 
 @media (max-width: 480px) {
   .pslider-outer-container {
-    padding: 10px 10px;
+    padding: 10px 0;
   }
 
   .pricing-card {

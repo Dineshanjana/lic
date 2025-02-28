@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import './PricingSlider.css';
+import '../Css/PricingSlider.css';
 import { CheckIcon } from './CheckIcon';
 
 const PricingSlider = () => {
@@ -59,7 +59,7 @@ const PricingSlider = () => {
 
   const pricingData = [
     {
-      image: "first.jpg",
+      image: "/src/assets/img/first.jpg",
       title: "LIC Jeevan Amar",
       description: "A non-linked, non-participating, term insurance plan.",
       buttonText: "Apply Now",
@@ -74,7 +74,7 @@ const PricingSlider = () => {
       className: "pink"
     },
     {
-      image: "/second.jpg",
+      image: "/src/assets/img/second.jpg",
       title: "LIC Tech Term",
       description: "An online term insurance plan with attractive features.",
       buttonText: "Apply Now",
@@ -89,7 +89,7 @@ const PricingSlider = () => {
       className: "blue"
     },
     {
-      image: "/third.jpg",
+      image: "/src/assets/img/third.jpg",
       title: "LIC Jeevan Labh",
       description: "A limited premium paying, non-linked, with-profits endowment plan.",
       buttonText: "Apply Now",
@@ -109,52 +109,54 @@ const PricingSlider = () => {
 
   return (
     <div className="pslider-outer-container">
-      <h1 className=" pslider-plans-heading">All Preferable Plans</h1>
-      <button 
-        className={`pslider-nav-button left ${!canScrollLeft ? 'hidden' : ''}`}
-        onClick={() => scroll('left')}
-        aria-label="Previous"
-      >
-        <span className="pslider-arrow-icon">←</span>
-      </button>
-      
-      <div 
-        className="pslider-cards-container" 
-        ref={sliderRef}
-        onScroll={checkScroll}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-      >
-        {allCards.map((plan, index) => (
-          <div key={index} className={`pricing-card ${plan.className}`}>
-            <img src={plan.image} alt="Plan" className="pslider-plan-image" />
-            <h2 className="pslider-title">{plan.title}</h2>
-            <p className="pslider-description">{plan.description}</p>
-            <button className={`pslider-cta-button ${plan.buttonVariant}`}>
-              {plan.buttonText}
-            </button>
-            <div className="pslider-features">
-              {plan.features.map((feature, idx) => (
-                <div key={idx} className="fpslider-eature">
-                  <CheckIcon />
-                  <span>{feature}</span>
-                </div>
-              ))}
+      <div className="pslider-content">
+        <h1 className="pslider-plans-heading">All Preferable Plans</h1>
+        <button 
+          className={`pslider-nav-button left ${!canScrollLeft ? 'hidden' : ''}`}
+          onClick={() => scroll('left')}
+          aria-label="Previous"
+        >
+          <span className="pslider-arrow-icon">&#10094;</span>
+        </button>
+        
+        <div 
+          className="pslider-cards-container" 
+          ref={sliderRef}
+          onScroll={checkScroll}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+        >
+          {allCards.map((plan, index) => (
+            <div key={index} className={`pricing-card ${plan.className}`}>
+              <img src={plan.image} alt="Plan" className="pslider-plan-image" />
+              <h2 className="pslider-title">{plan.title}</h2>
+              <p className="pslider-description">{plan.description}</p>
+              <button className={`pslider-cta-button ${plan.buttonVariant}`}>
+                {plan.buttonText}
+              </button>
+              <div className="pslider-features">
+                {plan.features.map((feature, idx) => (
+                  <div key={idx} className="fpslider-eature">
+                    <CheckIcon />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <button 
-        className={`pslider-nav-button right ${!canScrollRight ? 'hidden' : ''}`}
-        onClick={() => scroll('right')}
-        aria-label="Next"
-      >
-        <span className="pslider-arrow-icon">→</span>
-      </button>
+        <button 
+          className={`pslider-nav-button right ${!canScrollRight ? 'hidden' : ''}`}
+          onClick={() => scroll('right')}
+          aria-label="Next"
+        >
+          <span className="pslider-arrow-icon">&#10095;</span>
+        </button>
+      </div>
     </div>
   );
 };
