@@ -27,6 +27,8 @@ const ServiceSection = () => {
       overflow: 'hidden',
       position: 'relative',
       height: '100%',
+      display: 'flex',
+      flexDirection: 'column', // Use flex column to control alignment
     },
     glassCardHover: {
       transform: 'translateY(-10px)',
@@ -75,6 +77,12 @@ const ServiceSection = () => {
       lineHeight: '1.6',
       fontWeight: '300',
       opacity: '0.9',
+      position: 'relative',
+      zIndex: '2',
+      flex: '1', // Make content take up available space
+    },
+    buttonContainer: {
+      marginTop: 'auto', // Push button to bottom
       position: 'relative',
       zIndex: '2',
     },
@@ -264,20 +272,24 @@ const ServiceSection = () => {
       >
         <div style={styles.gradientCircle}></div>
         <div style={styles.cardBadge}>{card.badge}</div>
+        
         <div style={styles.cardIcon}>{card.icon}</div>
         <h3 style={styles.cardTitle}>{card.title}</h3>
         <p style={styles.cardContent}>{card.content}</p>
-        <a
-          href="#"
-          style={{
-            ...styles.cardButton,
-            ...(isButtonHovered ? styles.cardButtonHover : {}),
-          }}
-          onMouseEnter={() => setIsButtonHovered(true)}
-          onMouseLeave={() => setIsButtonHovered(false)}
-        >
-          {card.buttonText}
-        </a>
+        
+        <div style={styles.buttonContainer}>
+          <a
+            href="#"
+            style={{
+              ...styles.cardButton,
+              ...(isButtonHovered ? styles.cardButtonHover : {}),
+            }}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+          >
+            {card.buttonText}
+          </a>
+        </div>
       </div>
     );
   };
@@ -318,18 +330,20 @@ const ServiceSection = () => {
           Explore our full catalog of protection plans and find the perfect coverage for you.
         </p>
         
-        <a
-          href="#"
-          style={{
-            ...styles.cardButton,
-            ...(isButtonHovered ? styles.cardButtonHover : {}),
-            ...(isHovered ? styles.pulseButton : {}), // Add pulse animation when card is hovered
-          }}
-          onMouseEnter={() => setIsButtonHovered(true)}
-          onMouseLeave={() => setIsButtonHovered(false)}
-        >
-          View All Plans
-        </a>
+        <div style={styles.buttonContainer}>
+          <a
+            href="#"
+            style={{
+              ...styles.cardButton,
+              ...(isButtonHovered ? styles.cardButtonHover : {}),
+              ...(isHovered ? styles.pulseButton : {}), // Add pulse animation when card is hovered
+            }}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+          >
+            View All Plans
+          </a>
+        </div>
       </div>
     );
   };

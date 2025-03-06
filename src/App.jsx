@@ -9,25 +9,26 @@ import PricingSlider from './components/PricingSlider.jsx';
 import ServiceSection from './components/ServiceSection.jsx';
 import Image from './components/Image.jsx';
 import Carousel from './components/Carousel.jsx';
-
-
-import Edow from './pages/Edow.jsx';
 import PosterSection from './components/LicTermPlans.jsx';
-import WholeLife from './pages/WholeLife.jsx';
+
+// Pages
+
+import Child from './pages/Child.jsx';
+import Endowment from './pages/Endowment.jsx';
 import MoneyBack from './pages/MoneyBack.jsx';
-import Term from './pages/Term.jsx';
-import Unit from './pages/Unit.jsx';
-import Withdrawn from './pages/Withdrawn.jsx';
-import Micro from './pages/Micro.jsx';
 import Pension from './pages/Pension.jsx';
-import Insurance from './pages/Insurance.jsx';
+import Term from './pages/Term.jsx';
+import Ulip from './pages/Ulip.jsx';
+import WholeLife from './pages/WholeLife.jsx';
+
+
 
 
 export default function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+         <Navbar /> 
         <Routes>
           <Route path="/" element={<HomePageLayout />} />
 
@@ -39,15 +40,13 @@ export default function App() {
           <Route path="/PricingSlider" element={<PricingSlider />} />
 
 
-          <Route path="/Edow" element={<Edow />} />
-          <Route path="/WholeLife" element={<WholeLife />} />
-          <Route path="/MoneyBack" element={<MoneyBack />} />
-          <Route path="/Term" element={<Term />} />
-          <Route path="/Unit" element={<Unit />} />
-          <Route path="/Withdrawn" element={<Withdrawn />} />
-          <Route path="/Pension" element={<Pension />} />
-          <Route path="/Micro" element={<Micro />} />
-          <Route path="/Insurance" element={<Insurance />} />
+          <Route path="/pension-plan" element={<Pension />} />
+          <Route path="/ulip-plan" element={<Ulip />} />
+          <Route path="/term-plan" element={<Term />} />
+          <Route path="/money-back-plan" element={<MoneyBack />} />
+          <Route path="/whole-life-plan" element={<WholeLife />} />
+          <Route path='/child-plan'  element={<Child />} />
+          <Route path='/edowment-plan' element={<Endowment />} />
 
         </Routes>
         <Footer />

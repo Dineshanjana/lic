@@ -302,6 +302,7 @@
   }
   
   .hero-container {
+    padding: 34px 0px;
     flex-direction: column;
     text-align: center;
   }
@@ -403,6 +404,7 @@
   }
   
   .hero-stats {
+    padding: 25px 0px;
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
@@ -432,17 +434,17 @@
   /* Mobile-specific floating card positions to maintain visibility */
   .floating-benefit-card {
     padding: 4px 8px;
-    max-width: 160px;
+    max-width: 181px;
   }
   
   .floating-benefit-card[data-position="pos-0"] {
     top: -40px;
-    left: -5px;
+    left: -34px;
   }
 
   .floating-benefit-card[data-position="pos-1"] {
     top: -40px;
-    right: -5px;
+    right: -36px;
     left: auto;
   }
 

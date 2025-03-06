@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../Css/LicTermPlans.css';
+import FatherSon from '../assets/img/father-son-relation.png';
 
 const TermPlansSection = () => {
   const ovalBackgroundRef = useRef(null);
@@ -80,7 +81,7 @@ const TermPlansSection = () => {
       </div>
       <div className="right-content">
         <div className="oval-background" ref={ovalBackgroundRef}></div>
-        <img src="/src/assets/img/father-son-relation.png" alt="Father and son enjoying time together" className="family-image" />
+        <img src={FatherSon} alt="Father and son enjoying time together" className="family-image" />
         <div className="social-icons">
           <div className="social-icon">
             <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none">

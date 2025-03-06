@@ -266,9 +266,10 @@
   }
   
   .oval-background {
-    width: 150%;
-    height: 100%;
-    right: -25%;
+    width: 136%;
+    height: 126%;
+    right: -19%;
+    top: -44px;
   }
   
   .family-image {
@@ -295,6 +296,7 @@
   }
   
   .social-icons {
+    display: none;
     bottom: 10px;
     right: 10px;
   }

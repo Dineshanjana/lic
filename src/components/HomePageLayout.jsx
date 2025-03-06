@@ -11,11 +11,11 @@ const HomePageLayout = () => {
     <div>
       
       <HeroSection />
-      < LicTermPlans/>
+       <LicTermPlans/> 
       <ServiceSection />
-      <Carousel />
-      <PricingSlider />
-      <Image/> 
+       <Carousel /> 
+       <PricingSlider />  
+       <Image/>  
       
     </div>
   );

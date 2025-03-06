@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../Css/HeroSection.css';
 import { Shield, Heart, Coins, Wallet } from 'lucide-react';
+import LicImg from '../assets/img/lic.jpg';
 
 const HeroSection = () => {
   const [schemes, setSchemes] = useState(0);
@@ -60,10 +61,6 @@ const HeroSection = () => {
             Welcome to 
             <span className="scribble-highlight">
               Vishal LIC
-              <svg className="scribble-circle" viewBox="0 0 250 80" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19,50 C15,15 100,5 125,15 C190,25 235,15 235,40 C235,65 190,75 125,65 C60,55 15,65 15,40 Z"
-                  fill="none" stroke="#ffc300" strokeWidth="3" strokeLinecap="round" />
-              </svg>
             </span>
             , Your Path to a Secure Future!
           </h1>
@@ -100,7 +97,7 @@ const HeroSection = () => {
             </div>
           ))}
           <div className="hero-image-wrapper">
-            <img src="/src/Assets/img/lic.jpg" className="hero-image" alt="Hero" />
+            <img src={LicImg} className="hero-image" alt="Hero" />
           </div>
         </div>
       </div>
