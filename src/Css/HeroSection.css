@@ -66,11 +66,10 @@
   transform: translateY(20px);
   animation: slideUpFade 0.6s ease-out 0.4s forwards;
 }
-
 .hero-stats {
   display: flex;
   gap: 3rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .hero-stats div {
@@ -118,7 +117,58 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1;
   width: 100%;
+}
 
+/* New styles for LIC slogan */
+.lic-slogan {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpFade 0.6s ease-out 0.5s forwards;
+}
+
+.sanskrit-quote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold, #D4AF37);
+  margin-bottom: 0.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sanskrit-quote::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold, #D4AF37), transparent);
+}
+
+.slogan-meaning {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lic-slogan {
+    padding-bottom: 15px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
 }
 
 .hero-image-wrapper:hover {
@@ -148,7 +198,7 @@
   white-space: nowrap;
   border: 1px solid rgba(255, 195, 0, 0.2);
   backdrop-filter: blur(5px);
-  animation: floatIn 0.6s ease-out forwards, float 4s ease-in-out infinite;
+  animation: floatIn 0.8s ease-out forwards, floatSlowly 7s ease-in-out infinite;
 }
 
 /* Desktop Positions */
@@ -161,20 +211,30 @@
 .floating-benefit-card[data-position="pos-1"] {
   top: 40px;
   right: -80px;
-  animation-delay: 0.6s, 2s;
+  animation-delay: 0.6s, 3s;
 }
 
 .floating-benefit-card[data-position="pos-2"] {
   bottom: 40px;
   right: -40px;
-  animation-delay: 0.9s, 1.5s;
+  animation-delay: 0.9s, 2s;
 }
 
 .floating-benefit-card[data-position="pos-3"] {
   bottom: -40px;
   right: 60px;
-  animation-delay: 1.2s, 2.5s;
+  animation-delay: 1.2s, 4s;
 }
+
+@keyframes floatSlowly {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 
 .benefit-icon-circle {
   background-color: rgba(255, 195, 0, 0.2);
@@ -391,6 +451,14 @@
 
 /* Mobile Portrait */
 @media (max-width: 480px) {
+  @keyframes floatSlowly {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
   .hero-section {
     padding: 4rem 0.75rem;
   }

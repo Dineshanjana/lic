@@ -1,0 +1,236 @@
+/* Trust Badges Section */
+.trust-badges-section {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(240,248,255,1) 100%);
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .trust-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .trust-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .lic-logo {
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+  }
+  
+  .lic-logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .certified-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px 12px;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+  }
+  
+  .certified-icon {
+    color: var(--blue-primary);
+  }
+  
+  .certified-text {
+    font-weight: 600;
+    color: var(--blue-primary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  
+  .trust-badges-wrapper {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s ease;
+    max-width: 300px;
+  }
+  
+  .trust-badge:hover {
+    transform: translateY(-5px);
+  }
+  
+  .badge-icon-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.25);
+    flex-shrink: 0;
+  }
+  
+  .trust-icon {
+    color: white;
+    stroke-width: 2;
+  }
+  
+  .trust-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .trust-quote {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #003366; /* Navy blue color for quotes */
+    line-height: 1.4;
+    position: relative;
+  }
+  
+  .trust-quote::before {
+    content: '"';
+    font-size: 1.4rem;
+    color: var(--blue-primary);
+    position: relative;
+    top: 2px;
+  }
+  
+  .trust-quote::after {
+    content: '"';
+    font-size: 1.4rem;
+    color: var(--blue-primary);
+    position: relative;
+    top: 2px;
+  }
+  
+  /* Divider and Hindi Slogan */
+  .trust-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 30px auto 10px;
+    padding: 0 20px;
+  }
+  
+  .divider-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.5), transparent);
+  }
+  
+  .slogan-container {
+    padding: 0 20px;
+  }
+  
+  .hindi-slogan {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #003366; /* Navy blue color */
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hindi-slogan::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--blue-primary);
+    border-radius: 2px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .trust-badges-wrapper {
+      gap: 20px;
+    }
+    
+    .badge-icon-container {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .trust-quote {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .trust-content-container {
+      flex-direction: column;
+      gap: 25px;
+      padding: 10px 20px;
+    }
+    
+    .trust-logo-wrapper {
+      align-items: center;
+      width: 100%;
+    }
+    
+    .trust-badges-wrapper {
+      width: 100%;
+      justify-content: space-around;
+      gap: 10px;
+    }
+    
+    .hindi-slogan {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .trust-badges-section {
+      padding: 25px 0;
+    }
+    
+    .trust-badges-wrapper {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .trust-badge {
+      width: 90%;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      justify-content: flex-start;
+    }
+    
+    .badge-icon-container {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .hindi-slogan {
+      font-size: 1rem;
+    }
+    
+    .trust-divider {
+      margin: 20px auto 10px;
+    }
+  }

@@ -1,0 +1,106 @@
+/* WhatsAppChat.css */
+
+.whatsapp-chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .whatsapp-floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25D366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-floating-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  }
+  
+  .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+    fill: white;
+  }
+  
+  .whatsapp-greeting-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 250px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    animation: slideIn 0.3s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .greeting-header {
+    background-color: #128C7E;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .greeting-header p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .whatsapp-small-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  .greeting-body {
+    padding: 15px;
+  }
+  
+  .greeting-body p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #4A4A4A;
+  }
+  
+  .start-chat-btn {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-chat-btn:hover {
+    background-color: #128C7E;
+  }

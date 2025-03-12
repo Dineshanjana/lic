@@ -1,9 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import { Dropdown, Menu } from 'antd';
+import { UserOutlined, LogoutOutlined, DownOutlined } from '@ant-design/icons';
 import '../Css/Navbar.css';
+import AuthModal from './AuthModal';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [initialMode, setInitialMode] = useState("login");
+  const [userFullName, setUserFullName] = useState(null);
+ 
   const [showDesktopDropdown, setShowDesktopDropdown] = useState(false);
   const [showDesktopSubDropdown, setShowDesktopSubDropdown] = useState(false);
   const [expandedDropdowns, setExpandedDropdowns] = useState({
@@ -12,6 +20,44 @@ const Navbar = () => {
   });
   const navbarRef = useRef(null);
   const sidebarRef = useRef(null);
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        setUserFullName(decodedToken.fullName);
+        console.log('User:', decodedToken);
+      } catch (error) {
+        console.error('Invalid token:', error);
+      }
+    }
+  }, []);
+
+  const openLoginModal = () => {
+    setInitialMode("login");
+    setIsModalOpen(true);
+  };
+
+  const openSignupModal = () => {
+    setInitialMode("signup");
+    setIsModalOpen(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUserFullName(null);
+    window.location.reload();
+  };
+
+  const userMenu = (
+    <Menu onClick={handleLogout}>
+      <Menu.Item key="logout" icon={<LogoutOutlined />}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
 
   // Close sidebar when clicking outside
   useEffect(() => {
@@ -55,14 +101,17 @@ const Navbar = () => {
     }));
   };
 
+  
+
+
   return (
-    <div className="navbar-container" ref={navbarRef}>
+    <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-header">
           <Link to="/" className="logo link">
             <span>Vishal Insurance</span>
           </Link>
-          <div className="menu-toggle" onClick={toggleMenu}>
+          <div className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
               <span></span>
               <span></span>
@@ -71,10 +120,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Menu item*/}
         <div className="nav-links desktop-nav">
           <Link to="/" className="link">Home</Link>
-          <div 
+          <div
             className="dropdown-container"
             onMouseEnter={() => setShowDesktopDropdown(true)}
             onMouseLeave={() => setShowDesktopDropdown(false)}
@@ -82,7 +131,7 @@ const Navbar = () => {
             <Link to="/schemes" className="link">Schemes <span className="dropdown-arrow">▼</span></Link>
             {showDesktopDropdown && (
               <div className="dropdown-menu">
-                <div 
+                <div
                   className="dropdown-item"
                   onMouseEnter={() => setShowDesktopSubDropdown(true)}
                   onMouseLeave={() => setShowDesktopSubDropdown(false)}
@@ -90,8 +139,8 @@ const Navbar = () => {
                   Insurance Plans <span className="dropdown-arrow">▶</span>
                   {showDesktopSubDropdown && (
                     <div className="sub-dropdown-menu"
-                    onMouseEnter={() => setShowDesktopSubDropdown(true)} 
-                    onMouseLeave={() => setShowDesktopSubDropdown(false)} 
+                      onMouseEnter={() => setShowDesktopSubDropdown(true)}
+                      onMouseLeave={() => setShowDesktopSubDropdown(false)}
                     >
                       <Link to="/edowment-plan" className="dropdown-item link">Endowment Plans</Link>
                       <Link to="/whole-life-plan" className="dropdown-item link">Whole Life Plans</Link>
@@ -106,62 +155,63 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <Link to="/faqs" className="link">FAQs</Link>
-          <Link to="/grievances" className="link">Grievances</Link>
-          <Link to="/partner" className="link">Partner Onboarding</Link>
+          <Link to="/about-us" className="link">About Us</Link>
+          <Link to="/contact-us" className="link">Contact Us</Link>
         </div>
-        
+
         <div className="auth-buttons desktop-auth">
-          <Link to="/signup" className="signup-btn link">
-            Login / Signup
-          </Link>
+          {userFullName ? (
+            <Dropdown overlay={userMenu} trigger={['click']}>
+              <span className="user-dropdown">
+                <UserOutlined className="user-icon" /> {userFullName}
+                <DownOutlined className="dropdown-icon" />
+              </span>
+            </Dropdown>
+          ) : (
+            <button className="signup-btn link" onClick={openSignupModal}>
+              Login / Signup
+            </button>
+          )}
         </div>
+
       </nav>
 
-      {/* Mobile Sidebar */}
-      <div 
-        className={`sidebar-overlay ${isMenuOpen ? 'active' : ''}`} 
-        onClick={toggleMenu}
-      ></div>
-      
-      <div 
-        className={`sidebar ${isMenuOpen ? 'open' : ''}`} 
-        ref={sidebarRef}
-      >
+      <div className={`sidebar-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)}></div>
+      <div className={`sidebar ${isMenuOpen ? 'open' : ''}`} ref={sidebarRef}>
         <div className="sidebar-header">
-          <Link to="/" className="logo-mobile" onClick={toggleMenu}>
+          <Link to="/" className="logo-mobile" onClick={() => setIsMenuOpen(false)}>
             <span>Vishal Insurance</span>
           </Link>
-          <div className="close-btn" onClick={toggleMenu}>
+          <div className="close-btn" onClick={() => setIsMenuOpen(false)}>
             <span></span>
           </div>
         </div>
-        
+
         <div className="sidebar-content">
           <div className="sidebar-links">
             <Link to="/" className="sidebar-link" onClick={toggleMenu}>
               Home
             </Link>
-            
+
             <div className="sidebar-dropdown">
-              <div 
-                className="sidebar-dropdown-header" 
+              <div
+                className="sidebar-dropdown-header"
                 onClick={() => toggleDropdown('schemes')}
               >
                 <span>Schemes</span>
                 <span className={`dropdown-arrow ${expandedDropdowns.schemes ? 'active' : ''}`}>▼</span>
               </div>
-              
+
               <div className={`sidebar-dropdown-content ${expandedDropdowns.schemes ? 'active' : ''}`}>
                 <div className="sidebar-dropdown">
-                  <div 
-                    className="sidebar-dropdown-header sub" 
+                  <div
+                    className="sidebar-dropdown-header sub"
                     onClick={() => toggleDropdown('insurance')}
                   >
                     <span>Insurance Plans</span>
                     <span className={`dropdown-arrow ${expandedDropdowns.insurance ? 'active' : ''}`}>▼</span>
                   </div>
-                  
+
                   <div className={`sidebar-dropdown-content sub ${expandedDropdowns.insurance ? 'active' : ''}`}>
                     <Link to="/edowment-plan" className="sidebar-link sub" onClick={toggleMenu}>
                       Endowment Plans
@@ -177,7 +227,7 @@ const Navbar = () => {
                     </Link>
                   </div>
                 </div>
-                
+
                 <Link to="/pension-plan" className="sidebar-link" onClick={toggleMenu}>
                   Pension Plans
                 </Link>
@@ -189,25 +239,37 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            
-            <Link to="/faqs" className="sidebar-link" onClick={toggleMenu}>
-              FAQs
+
+            <Link to="/about-us" className="sidebar-link" onClick={toggleMenu}>
+              About Us
             </Link>
-            <Link to="/grievances" className="sidebar-link" onClick={toggleMenu}>
-              Grievances
-            </Link>
-            <Link to="/partner" className="sidebar-link" onClick={toggleMenu}>
-              Partner Onboarding
+            <Link to="/contact-us" className="sidebar-link" onClick={toggleMenu}>
+              Contact Us
             </Link>
           </div>
-          
+
+
           <div className="sidebar-auth">
-            <Link to="/signup" className="signup-btn mobile-signup-btn" onClick={toggleMenu}>
-              Login / Signup
-            </Link>
+            {userFullName ? (
+              <Dropdown overlay={userMenu} trigger={['click']}>
+                <span className="user-dropdown">
+                  <UserOutlined className="user-icon" /> {userFullName}
+                  <DownOutlined className="dropdown-icon" />
+                </span>
+              </Dropdown>
+            ) : (
+              <button className="signup-btn mobile-signup-btn" onClick={openLoginModal}>
+                Login / Signup
+              </button>
+            )}
           </div>
+
+
         </div>
+
       </div>
+
+      <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialMode={initialMode} />
     </div>
   );
 };

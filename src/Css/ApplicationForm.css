@@ -1,0 +1,464 @@
+/* LIC Application Form Styles */
+.application-main{
+    width: 100%;
+    background-color: #003d8f;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.application-form-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+  
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+.form-header h2 {
+    color: #0a2e5c;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+  
+.form-header p {
+    color: #5c6c7c;
+    font-size: 15px;
+}
+  
+/* Steps Indicator */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+}
+  
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: thin;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.steps-indicator::-webkit-scrollbar {
+    height: 4px;
+}
+
+.steps-indicator::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+  
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+    min-width: 80px;
+    padding: 0 5px;
+}
+  
+.step-circle {
+    background-color: #e5e9f2;
+    color: #94a3b8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+  
+.step-title {
+    font-size: 12px;
+    color: #5c6c7c;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+  
+.step-connector {
+    position: absolute;
+    top: 20px;
+    right: calc(-50% + 20px);
+    width: calc(100% - 40px);
+    height: 3px;
+    background-color: #e5e9f2;
+    z-index: 1;
+}
+  
+.step-item.active .step-circle {
+    background-color: #0051bf;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 81, 191, 0.2);
+}
+  
+.step-item.active .step-title {
+    color: #0051bf;
+    font-weight: 600;
+}
+  
+.step-item.completed .step-circle {
+    background-color: #16a34a;
+    color: white;
+}
+  
+.step-item.completed .step-title {
+    color: #16a34a;
+}
+  
+.step-connector.completed {
+    background-color: #16a34a;
+}
+  
+/* Form Container */
+.form-container {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 20px;
+}
+  
+.step-content {
+    margin-bottom: 25px;
+}
+  
+.step-content .step-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0a2e5c;
+    margin-bottom: 8px;
+}
+  
+.step-description {
+    color: #5c6c7c;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+  
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+  
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+  
+.form-row .form-group {
+    flex: 1;
+}
+  
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 8px;
+}
+  
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #334155;
+    background-color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+  
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+  
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #0051bf;
+    box-shadow: 0 0 0 3px rgba(0, 81, 191, 0.1);
+}
+  
+.input-container {
+    position: relative;
+}
+  
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+}
+  
+.input-container input {
+    padding-left: 40px;
+}
+  
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+  
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+  
+.radio-label input {
+    margin-right: 8px;
+}
+  
+/* File Upload */
+.file-upload {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    position: relative;
+}
+  
+.file-upload:hover {
+    border-color: #0051bf;
+    background-color: rgba(0, 81, 191, 0.05);
+}
+  
+.upload-icon {
+    color: #64748b;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+  
+.file-upload input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.file-label {
+    color: #64748b;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.file-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #f0f9ff;
+    border-radius: 6px;
+    border-left: 3px solid #0ea5e9;
+}
+  
+.file-name {
+    font-size: 13px;
+    color: #0284c7;
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.success-icon {
+    color: #16a34a;
+    flex-shrink: 0;
+}
+  
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+  
+.prev-btn,
+.next-btn,
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+  
+.prev-btn {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+  
+.prev-btn:hover {
+    background-color: #e2e8f0;
+}
+  
+.prev-btn svg {
+    margin-right: 8px;
+}
+  
+.next-btn {
+    background-color: #0051bf;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 81, 191, 0.2);
+    margin-left: auto;
+}
+  
+.next-btn:hover {
+    background-color: #003d8f;
+}
+  
+.next-btn svg {
+    margin-left: 8px;
+}
+  
+.submit-btn {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+    margin-left: auto;
+}
+  
+.submit-btn:hover {
+    background-color: #15803d;
+}
+  
+.submit-btn svg {
+    margin-left: 8px;
+}
+  
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .application-main {
+        padding: 10px;
+    }
+    
+    .application-form-container {
+        margin: 100px auto;
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+    
+    .form-header h2 {
+        font-size: 20px;
+    }
+    
+    .form-header p {
+        font-size: 14px;
+    }
+    
+    .form-container {
+        padding: 15px;
+    }
+    
+    .step-circle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .step-circle svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .step-connector {
+        top: 18px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .prev-btn, 
+    .next-btn, 
+    .submit-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        min-width: 100px;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .radio-label {
+        margin-right: 0;
+    }
+    
+    /* Ensure full width buttons on very small screens */
+    @media (max-width: 350px) {
+        .form-navigation {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .prev-btn, 
+        .next-btn, 
+        .submit-btn {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}
+
+/* Medium-sized screens */
+@media (min-width: 769px) and (max-width: 992px) {
+    .application-form-container {
+        max-width: 90%;
+        padding: 25px;
+    }
+    
+    .step-item {
+        min-width: 70px;
+    }
+}

@@ -46,10 +46,6 @@
   width: 100%;
   padding: 100px 50px;
   margin: 0 auto;
-  background-image: url('../assets/img/page/worklife.jpg'); /* Add your background image path here */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: var(--white);
 }
 
@@ -79,7 +75,7 @@
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 700px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
 }
 
 /* CTA Buttons */
@@ -91,6 +87,7 @@
 
 .apply-now-btn,
 .contact-us-btn {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -105,194 +102,29 @@
 .apply-now-btn {
   background: var(--gradient-primary);
   color: var(--white);
+  cursor: pointer;
 }
 
 .contact-us-btn {
   background: rgba(108, 117, 125, 0.2);
   color: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 
-/* Trust Badges Section */
-.trust-badges-section {
-  width: 100%;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(240,248,255,1) 100%);
-  padding: 20px 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 10;
-}
-
-.trust-content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.trust-logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.lic-logo {
-  height: 60px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease;
-}
-
-.lic-logo:hover {
+.apply-now-btn:hover{
   transform: scale(1.05);
+  background: linear-gradient(to right, #0056b3, #0096d6);
+  box-shadow: 0 12px 25px rgba(0,123,255,0.3);
+
 }
 
-.certified-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background-color: rgba(0, 123, 255, 0.1);
-  border-radius: 20px;
-  padding: 4px 12px;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+.contact-us-btn:hover {
+  transform: scale(1.05);
+  background: rgba(108, 117, 125, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.certified-icon {
-  color: var(--blue-primary);
-}
-
-.certified-text {
-  font-weight: 600;
-  color: var(--blue-primary);
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.trust-badges-wrapper {
-  display: flex;
-  gap: 30px;
-}
-
-.trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: transform 0.3s ease;
-}
-
-.trust-badge:hover {
-  transform: translateY(-5px);
-}
-
-.badge-icon-container {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: var(--gradient-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.25);
-}
-
-.trust-icon {
-  color: white;
-  stroke-width: 2;
-}
-
-.trust-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.trust-number {
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: var(--dark-teal);
-  line-height: 1.2;
-  position: relative;
-}
-
-.trust-number::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 20px;
-  height: 3px;
-  background: var(--blue-primary);
-  border-radius: 2px;
-}
-
-.trust-label {
-  font-size: 0.9rem;
-  color: var(--blue-secondary);
-  margin-top: 8px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .trust-badges-wrapper {
-    gap: 20px;
-  }
-  
-  .badge-icon-container {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .trust-number {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .trust-content-container {
-    flex-direction: column;
-    gap: 25px;
-    padding: 10px 20px;
-  }
-  
-  .trust-logo-wrapper {
-    align-items: center;
-    width: 100%;
-  }
-  
-  .trust-badges-wrapper {
-    width: 100%;
-    justify-content: space-around;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .trust-badges-section {
-    padding: 25px 0;
-  }
-  
-  .trust-badges-wrapper {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  .trust-badge {
-    width: 80%;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    justify-content: flex-start;
-  }
-  
-  .badge-icon-container {
-    width: 40px;
-    height: 40px;
-  }
-}
 
 /* Key Features Section */
 .key-features-section {
@@ -451,6 +283,7 @@
 }
 
 .special-apply-now-btn {
+  text-decoration: none;
   background: var(--yellow);
   color: var(--dark-teal);
   border: none;

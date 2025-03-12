@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../Css/Carousel.css";
+import img1 from '../assets/img/achiv/vishalAward.jpeg';
+import img2 from '../assets/img/achiv/vishalFull.jpeg';
+import img3 from '../assets/img/achiv/vishalRoad.jpeg';
+import img4 from '../assets/img/achiv/vishalAward2.jpeg';
 
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,15 +19,6 @@ const Carousel = () => {
     return () => clearInterval(autoAdvanceTimer);
   }, []);
 
-  // Handle manual navigation
-  const handlePrev = () => {
-    setActiveIndex((current) => (current - 1 + totalSlides) % totalSlides);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((current) => (current + 1) % totalSlides);
-  };
-
   // Content for slides
   const slideContent = [
     {
@@ -31,8 +26,8 @@ const Carousel = () => {
       title: "Largest Insurer",
       topic: "Achievement",
       des: "LIC is the largest life insurer in India with a market share of over 70%.",
-      bgClass: "review-1",
-      thumbClass: "thumb-1",
+      bgImage: `url(${img1})`,
+      thumbImage: `url(${img1})`,
       thumbTitle: "Largest Insurer",
       thumbDesc: "Market Leader",
     },
@@ -41,8 +36,8 @@ const Carousel = () => {
       title: "Extensive Network",
       topic: "Achievement",
       des: "LIC has an extensive network of over 2,000 branches and more than 1 million agents.",
-      bgClass: "review-2",
-      thumbClass: "thumb-2",
+      bgImage: `url(${img2})`,
+      thumbImage: `url(${img2})`,
       thumbTitle: "Extensive Network",
       thumbDesc: "Wide Reach",
     },
@@ -51,8 +46,8 @@ const Carousel = () => {
       title: "Customer Trust",
       topic: "Achievement",
       des: "LIC has been awarded the 'Most Trusted Brand' in the insurance category for several years.",
-      bgClass: "review-3",
-      thumbClass: "thumb-3",
+      bgImage: `url(${img3})`,
+      thumbImage: `url(${img3})`,
       thumbTitle: "Customer Trust",
       thumbDesc: "Most Trusted Brand",
     },
@@ -61,8 +56,8 @@ const Carousel = () => {
       title: "High Claim Settlement",
       topic: "Achievement",
       des: "LIC has a high claim settlement ratio, ensuring timely and hassle-free claim processing.",
-      bgClass: "review-4",
-      thumbClass: "thumb-4",
+      bgImage: `url(${img4})`,
+      thumbImage: `url(${img4})`,
       thumbTitle: "High Claim Settlement",
       thumbDesc: "Reliable Service",
     },
@@ -73,12 +68,17 @@ const Carousel = () => {
       {/* Main slider */}
       <div className="list">
         {slideContent.map((slide, index) => (
-          <div 
+          <div
             key={index}
             className={`item ${index === activeIndex ? "active" : ""}`}
             style={{ zIndex: index === activeIndex ? 1 : 0, opacity: index === activeIndex ? 1 : 0 }}
           >
-            <div className={`text-bg ${slide.bgClass}`}></div>
+            <div
+              className="background-image"
+              style={{ backgroundImage: slide.bgImage }}
+            >
+              <div className="overlay"></div>
+            </div>
             <div className="content">
               <div className="author">{slide.author}</div>
               <div className="title">{slide.title}</div>
@@ -92,25 +92,25 @@ const Carousel = () => {
       {/* Thumbnails */}
       <div className="thumbnail">
         {slideContent.map((slide, index) => (
-          <div 
+          <div
             key={index}
             className={`item ${index === activeIndex ? "active-thumb" : ""}`}
             onClick={() => setActiveIndex(index)}
           >
-            <div className={`text-bg-thumb ${slide.thumbClass}`}></div>
+            <div
+              className="thumb-bg"
+              style={{ backgroundImage: slide.thumbImage }}
+            >
+              <div className="thumb-overlay"></div>
+            </div>
             <div className="content">
               <div className="title">{slide.thumbTitle}</div>
-              <div className="description">{slide.thumbDesc}</div>
+              {/* <div className="description">{slide.thumbDesc}</div> */}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Navigation arrows */}
-      <div className="arrows">
-        <button onClick={handlePrev}>&lt;</button>
-        <button onClick={handleNext}>&gt;</button>
-      </div>
     </div>
   );
 };

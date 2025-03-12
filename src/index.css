@@ -73,3 +73,7 @@ button:focus-visible {
   --navy: #001d3d;
   --light-navy: #001f3f; 
 }
+
+body {
+  margin: 0 !important;
+}

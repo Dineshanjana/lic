@@ -1,0 +1,193 @@
+:root {
+  --near-black: #000814;
+  --gold: #ffc300;
+  --dark-navy: #001d3d;
+  --navy: #003566;
+}
+
+.main-con {
+  background: linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px 20px;
+}
+
+.contact-container {
+  max-width: 800px;
+  width: 100%;
+  /* Apply the glassmorphism card styling */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add the gradient circle from the glassmorphism card */
+.contact-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 195, 0, 0.2), rgba(0, 53, 102, 0.2));
+  border-radius: 15px;
+  z-index: -1;
+}
+
+/* Add the gradient circle decoration */
+.gradient-circle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), transparent);
+  opacity: 0.15;
+  top: -50px;
+  right: -50px;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitled {
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-group {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  flex: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(255, 195, 0, 0.3);
+  background-color: #ffffff00 !important; /* Change background color to black */
+}
+
+input:-webkit-autofill {
+  background-color: #ffffff00;
+  box-shadow: 0 0 0px 1000px white inset !important; /* Force background */
+  color: black !important;
+}
+
+/* Ensure consistent appearance */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: #ffffff00 !important; /* Change this to your preferred color */
+  color: black !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.1) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path d="M0 0h12L6 6z" fill="white"/></svg>') no-repeat right 10px center;
+  background-size: 12px;
+}
+
+.form-group select option {
+  background-color: var(--dark-navy);
+  color: white;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  /* Reduced the gap between checkbox and text */
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold);
+  margin-right: 4px;
+  /* Added specific right margin to the checkbox */
+}
+
+.checkbox-group label {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group a {
+  color: var(--gold);
+  text-decoration: none;
+  margin-left: 3px;
+  /* Add slight spacing before the link */
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  padding: 12px;
+  background: linear-gradient(to right, var(--gold), #ffda85);
+  color: var(--near-black);
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 195, 0, 0.3);
+}

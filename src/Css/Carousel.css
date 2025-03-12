@@ -15,57 +15,23 @@
     transition: opacity 0.5s ease;
 }
 
-/* Replace images with colored backgrounds and text */
-.text-bg {
+/* Background image styling */
+.background-image {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.1);
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-.review-1 {
-    background: linear-gradient(135deg, #3a6186, #89253e);
-}
-
-.review-2 {
-    background: linear-gradient(135deg, #134e5e, #71b280);
-}
-
-.review-3 {
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-}
-
-.review-4 {
-    background: linear-gradient(135deg, #5f2c82, #49a09d);
-}
-
-.text-bg-thumb {
+/* Dark overlay for better text visibility */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-}
-
-.thumb-1 {
-    background: linear-gradient(135deg, #3a6186, #89253e);
-}
-
-.thumb-2 {
-    background: linear-gradient(135deg, #134e5e, #71b280);
-}
-
-.thumb-3 {
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-}
-
-.thumb-4 {
-    background: linear-gradient(135deg, #5f2c82, #49a09d);
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
 }
 
 .carousel .list .item .content {
@@ -78,7 +44,8 @@
     padding-right: 30%;
     box-sizing: border-box;
     color: #fff;
-    text-shadow: 0 5px 10px #0004;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .carousel .list .item .author {
@@ -121,10 +88,31 @@
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .thumbnail .item.active-thumb {
     transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Thumbnail background and overlay */
+.thumb-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.thumb-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
 }
 
 .thumbnail .item .content {
@@ -133,6 +121,7 @@
     bottom: 10px;
     left: 10px;
     right: 10px;
+    z-index: 2;
 }
 
 .thumbnail .item .content .title {
@@ -158,7 +147,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: #fff;
     font-family: monospace;
@@ -173,13 +162,34 @@
 }
 
 /* Responsive Adjustments */
+@media (max-width: 1440px) {
+    .thumbnail {
+        left: 70%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .carousel .list .item .content {
+        padding-right: 10%;
+    }
+    
+    .thumbnail {
+        left: 60%;
+    }
+}
+
 @media (max-width: 1024px) {
     .carousel .list .item .content {
         padding-right: 6%;
+        top: 15%;
     }
 
     .thumbnail {
         left: 70%;
+    }
+    
+    .arrows {
+        left: 45%;
     }
 }
 
@@ -194,18 +204,40 @@
     }
 
     .thumbnail {
-        left: 60%;
+        left: 50%;
         bottom: 30px;
+        transform: translateX(-50%);
     }
 
     .thumbnail .item {
-        font-size: 13px;
-        width: 88px;
-        height: 125PX;
+        width: 100px;
+        height: 140px;
+    }
+    
+    .arrows {
+        width: 85%;
+        left: 43%;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel .list .item .content {
+        top: 10%;
+        padding-right: 0;
+    }
+    
+    .thumbnail {
+        display: flex;
+        justify-content: center;
+        width: 90%;
     }
 }
 
 @media (max-width: 480px) {
+    .carousel .list .item .author {
+        letter-spacing: 5px;
+    }
+    
     .carousel .list .item .title,
     .carousel .list .item .topic {
         font-size: 2em;
@@ -216,14 +248,13 @@
     }
 
     .thumbnail {
-        left: 50%;
         bottom: 20px;
-        gap: 10px;
+        gap: 8px;
     }
 
     .thumbnail .item {
-        width: 82px;
-        height: 125px;
+        width: 85px;
+        height: 135px;
     }
 
     .arrows button {
@@ -232,3 +263,24 @@
         font-size: 0.8em;
     }
 }
+
+@media (max-width: 360px) {
+    .carousel .list .item .title,
+    .carousel .list .item .topic {
+        font-size: 1.5em;
+    }
+    
+    .thumbnail .item {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .thumbnail .item .content .title {
+        font-size: 0.8em;
+    }
+    
+    .thumbnail .item .content .description {
+        font-size: 0.7em;
+    }
+}
+

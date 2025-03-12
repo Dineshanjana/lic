@@ -1,31 +1,9 @@
 import React, { useState, useEffect } from "react";
 import '../Css/HeroSection.css';
 import { Shield, Heart, Coins, Wallet } from 'lucide-react';
-import LicImg from '../assets/img/lic.jpg';
+import LicImg from '../assets/img/vishal-img.jpg';
 
 const HeroSection = () => {
-  const [schemes, setSchemes] = useState(0);
-  const [loanCategories, setLoanCategories] = useState(0);
-  const [lenders, setLenders] = useState(0);
-
-  useEffect(() => {
-    const increment = (setState, target, duration) => {
-      let start = 0;
-      const stepTime = Math.abs(Math.floor(duration / target));
-      const timer = setInterval(() => {
-        start += 1;
-        setState(start);
-        if (start === target) {
-          clearInterval(timer);
-        }
-      }, stepTime);
-    };
-
-    increment(setSchemes, 15, 2000);
-    increment(setLoanCategories, 7, 2000);
-    increment(setLenders, 200, 2000);
-  }, []);
-
   const benefits = [
     {
       icon: <Shield size={24} />,
@@ -53,6 +31,12 @@ const HeroSection = () => {
     }
   ];
 
+  const licQuotes = [
+    { number: "1.5 Cr+", label: "Families Protected" },
+    { number: "70+ Years", label: "of Trust" },
+    { number: "2000+", label: "Plans Available" }
+  ];
+
   return (
     <div className="hero-section">
       <div className="hero-container">
@@ -68,19 +52,9 @@ const HeroSection = () => {
             Vishal LIC – Your trusted LIC advisor, providing expert guidance on a variety of LIC plans to secure your future. 
             Get personalized roadmaps and complete assistance to choose the best policy for your needs. Plan smart, live secure!
           </p>
-          <div className="hero-stats">
-            <div>
-              <p className="hero-number">{schemes}</p>
-              <p className="hero-label">Government Schemes</p>
-            </div>
-            <div>
-              <p className="hero-number">{loanCategories}</p>
-              <p className="hero-label">Loan Categories</p>
-            </div>
-            <div>
-              <p className="hero-number">{lenders}+</p>
-              <p className="hero-label">Trusted Lenders</p>
-            </div>
+          <div className="lic-slogan">
+            <span className="sanskrit-quote">योगक्षेमं वहाम्यहम्</span>
+            <span className="slogan-meaning">आपकी सुरक्षा, हमारी जिम्मेदारी</span>
           </div>
         </div>
         <div className="hero-image-container">

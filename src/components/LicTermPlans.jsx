@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import '../Css/LicTermPlans.css';
+import { Link} from 'react-router-dom';
 import FatherSon from '../assets/img/father-son-relation.png';
 
 const TermPlansSection = () => {
-  const ovalBackgroundRef = useRef(null);
   const applyButtonRef = useRef(null);
 
   useEffect(() => {
@@ -14,18 +14,6 @@ const TermPlansSection = () => {
         item.classList.add('animate');
       }, 500 + index * 200);
     });
-
-    // Animate floating card with random subtle movements
-    const ovalBackground = ovalBackgroundRef.current;
-    const floatInterval = setInterval(() => {
-      const randomX = Math.random() * 5 - 2.5;
-      const randomRotate = Math.random() * 1 - 0.5;
-      ovalBackground.style.transform = `translateY(-15px) translateX(${randomX}px) rotate(${randomRotate}deg)`;
-      
-      setTimeout(() => {
-        ovalBackground.style.transform = '';
-      }, 3000);
-    }, 6000);
     
     // Add ripple effect to button
     const applyButton = applyButtonRef.current;
@@ -49,7 +37,6 @@ const TermPlansSection = () => {
     
     // Cleanup
     return () => {
-      clearInterval(floatInterval);
       applyButton.removeEventListener('click', handleButtonClick);
     };
   }, []);
@@ -77,10 +64,11 @@ const TermPlansSection = () => {
           </div>
         </div>
         <p className="subtitle">Know your policy, understand the terms — Secure your future with confidence</p>
-        <button className="apply-button" ref={applyButtonRef}>Apply Now</button>
+        <Link className="apply-button" to='/application-form' ref={applyButtonRef}>Apply Now</Link>
       </div>
       <div className="right-content">
-        <div className="oval-background" ref={ovalBackgroundRef}></div>
+        <div className="oval-background"></div>
+        <div className="rectangle-background"></div>
         <img src={FatherSon} alt="Father and son enjoying time together" className="family-image" />
         <div className="social-icons">
           <div className="social-icon">

@@ -1,43 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, BarChart2, Target, Calculator, Briefcase, Gift, Users, Shield, Award, Check } from 'lucide-react';
+import { ArrowRight, BarChart2, Target, Calculator, Briefcase, Gift, Check, MessageCircle } from 'lucide-react';
 import '../Css/CombinedStyles.css';
-import LICLogo from '../assets/img/lic-logo.png'; // Ensure you have the LIC logo image in the specified path
+import LICLogo from '../assets/img/lic-logo.png';
+import TrustSection from '../components/trust';
+import BackImg from '../assets/img/page/child.jpg';
+import { Link } from "react-router-dom";
 
-const Pension = () => {
+const ChildPlan = () => {
 
   const subPlans = [
     {
-      title: "LIC's New Pension Plus",
-      planNo: '867',
-      uinNo: '512L347V01',
-      icon: <Calculator className="sub-plan-icon" />,
-    },
-    {
-      title: "LIC's Jeevan Akshay-VII",
-      planNo: '857',
-      uinNo: '512N337V06',
+      title: "LIC's Jeevan Tarun",
+      planNo: '934',
+      uinNo: '512N299V04',
       icon: <Briefcase className="sub-plan-icon" />,
+      isSpecial: false,
     },
     {
-      title: "LIC's New Jeevan Shanti",
-      planNo: '758',
-      uinNo: '512N338V07',
-      icon: <Gift className="sub-plan-icon" />,
-    },
-    {
-      title: "LIC's Saral Pension",
-      planNo: '862',
-      uinNo: '512N342V05',
-      icon: <Target className="sub-plan-icon" />,
-    },
-    {
-      title: "LIC's Smart Pension",
-      planNo: '879',
-      uinNo: '512N386V01',
+      title: "LIC's Amritbaal",
+      planNo: '936',
+      uinNo: '512N301V05',
       icon: <BarChart2 className="sub-plan-icon" />,
+      isSpecial: false,
     },
     {
-      title: "Apply Now for Pension Plan with Full Digital",
+      title: "Apply Now for Child Plan with Full Digital",
       planNo: '',
       uinNo: '',
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
@@ -46,142 +32,51 @@ const Pension = () => {
   ];
 
   const keyFeatures = [
-    "Guaranteed income for life after retirement",
-    "Option for immediate or deferred annuity plans",
-    "Joint life pension options for couples",
-    "Tax benefits under section 80CCC of Income Tax Act",
-    "Return of purchase price option available",
-    "Flexible premium payment options",
-    "Loan facility available after completion of specified period",
-    "Special rates for high purchase price"
+    "Financial security for child's future education and marriage",
+    "Money-back options at different stages of child's growth",
+    "Flexible premium payment terms",
+    "Guaranteed survival benefits at key life stages",
+    "Tax benefits under section 80C of Income Tax Act",
+    "Option to add premium waiver rider in case of parent's demise",
+    "Maturity benefits with bonus options",
+    "Loan facility available after a certain period"
   ];
 
-  const [counters, setCounters] = useState({
-    clients: 0,
-    security: 0,
-    years: 0
-  });
-  
-  const targetValues = {
-    clients: 50,
-    security: 100,
-    years: 30
-  };
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          startCounting();
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    const section = document.querySelector('.trust-badges-section');
-    if (section) observer.observe(section);
-    
-    return () => {
-      if (section) observer.disconnect();
-    };
-  }, []);
-  
-  const startCounting = () => {
-    const duration = 2000; // 2 seconds for the counting animation
-    const steps = 60;
-    const interval = duration / steps;
-    
-    let step = 0;
-    
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      
-      setCounters({
-        clients: Math.ceil(targetValues.clients * progress),
-        security: Math.ceil(targetValues.security * progress),
-        years: Math.ceil(targetValues.years * progress)
-      });
-      
-      if (step >= steps) {
-        clearInterval(timer);
-      }
-    }, interval);
-  }
   return (
     <div className="pages-sprout-container">
       {/* Hero Section */}
-      <div className="pages-hero-section">
+      <div className="pages-hero-section"
+        style={{
+          backgroundImage: `url(${BackImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="pages-hero-content-centered">
-          <h1>Pension Plans</h1>
+          <h1>Child Plans</h1>
           <p className="pages-hero-description">
-            A structured financial plan where individuals contribute money during their working years,
-            which is later paid out as a lump sum after maturity or in case of an unforeseen event.
-            It combines savings and insurance benefits.
+            A child plan helps parents secure their child's future financially by providing funds for education, marriage,
+            or other significant milestones. It ensures financial stability even in the absence of parents.
           </p>
 
           <div className="hero-cta-buttons">
-            <button className="apply-now-btn">
+            <Link to="/application-form" className="apply-now-btn">
               Apply Now <ArrowRight className="btn-icon" size={20} />
-            </button>
-            <button className="contact-us-btn">
-              Contact Us <ArrowRight className="btn-icon" size={20} />
-            </button>
+            </Link>
+            <Link className="contact-us-btn" to="/contact-us">
+              Contact Us <MessageCircle className="btn-icon" size={20} />
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Trust Badges Section */}
-      <div className="trust-badges-section">
-      <div className="trust-content-container">
-        <div className="trust-logo-wrapper">
-          <img src={LICLogo} alt="LIC Logo" className="lic-logo" />
-          <div className="certified-badge">
-            <Shield size={16} className="certified-icon" />
-            <span className="certified-text">Officially Certified</span>
-          </div>
-        </div>
-        
-        <div className="trust-badges-wrapper">
-          <div className="trust-badge">
-            <div className="badge-icon-container">
-              <Users className="trust-icon" />
-            </div>
-            <div className="trust-text">
-              <span className="trust-number">{counters.clients}K+</span>
-              <span className="trust-label">Satisfied Clients</span>
-            </div>
-          </div>
-          
-          <div className="trust-badge">
-            <div className="badge-icon-container">
-              <Shield className="trust-icon" />
-            </div>
-            <div className="trust-text">
-              <span className="trust-number">{counters.security}%</span>
-              <span className="trust-label">Secure & Protected</span>
-            </div>
-          </div>
-          
-          <div className="trust-badge">
-            <div className="badge-icon-container">
-              <Award className="trust-icon" />
-            </div>
-            <div className="trust-text">
-              <span className="trust-number">{counters.years}+</span>
-              <span className="trust-label">Years of Trust</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-
+      <TrustSection />
 
       {/* Sub Plans Section */}
       <div className="sub-plans-container">
-        <h2 className="sub-plans-heading">LIC Pension Plans</h2>
+        <h2 className="sub-plans-heading">LIC Child Plans</h2>
         <div className="sub-plans-grid">
           {subPlans.map((plan, index) => (
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
@@ -190,13 +85,13 @@ const Pension = () => {
               {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
               {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
               {plan.isSpecial ? (
-                <button className="special-apply-now-btn">
+                <Link className="special-apply-now-btn" to="/application-form">
                   Apply Now <ArrowRight size={16} />
-                </button>
+                </Link>
               ) : (
-                <a href="#" className="sub-plan-link">
+                <Link href="#" className="sub-plan-link" to="/application-form">
                   Click Here <ArrowRight size={16} />
-                </a>
+                </Link>
               )}
             </div>
           ))}
@@ -206,7 +101,7 @@ const Pension = () => {
       {/* Key Features Section */}
       <div className="key-features-section">
         <div className="key-features-card">
-          <h2 className="features-heading">Key Features of LIC Pension Plans</h2>
+          <h2 className="features-heading">Key Features of LIC Child Plans</h2>
           <div className="features-grid">
             {keyFeatures.map((feature, index) => (
               <div key={index} className="feature-item">
@@ -221,4 +116,4 @@ const Pension = () => {
   );
 };
 
-export default Pension;
+export default ChildPlan;

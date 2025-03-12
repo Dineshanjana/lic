@@ -1,0 +1,60 @@
+{
+    "type": "Topology",
+    "objects": {
+        "countries": {
+            "type": "GeometryCollection",
+            "geometries": [
+                {
+                    "type": "MultiPolygon",
+                    "arcs": [
+                        [
+                            [
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1
+                            ]
+                        ]
+                    ],
+                    "id": "242",
+                    "properties": {
+                        "name": "Fiji"
+                    }
+                },
+                {
+                    "type": "Polygon",
+                    "arcs": [
+                      [2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    ],
+                    "id": "834",
+                    "properties": {
+                      "name": "Tanzania"
+                    }
+                  }
+            ]
+        },
+        "land": {
+            "type": "GeometryCollection",
+            "geometries": []
+        }
+    },
+    "arcs": [],
+    "bbox": [
+        -180,
+        -85.6090377745977,
+        180,
+        83.64513
+    ],
+    "transform": {
+        "scale": [
+            0.00360003600036,
+            0.00169255860333201
+        ],
+        "translate": [
+            -180,
+            -85.6090377745977
+        ]
+    }
+}

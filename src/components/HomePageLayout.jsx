@@ -4,7 +4,7 @@ import ServiceSection from './ServiceSection.jsx';
 import Carousel from './Carousel.jsx';
 import PricingSlider from './PricingSlider.jsx';
 import LicTermPlans from './LicTermPlans.jsx';
-import Image from './Image.jsx';
+import Testimonial from './Testimonials.jsx';
 
 const HomePageLayout = () => {
   return (
@@ -15,7 +15,7 @@ const HomePageLayout = () => {
       <ServiceSection />
        <Carousel /> 
        <PricingSlider />  
-       <Image/>  
+       <Testimonial/>  
       
     </div>
   );

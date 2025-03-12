@@ -101,6 +101,7 @@
 }
 
 .apply-button {
+  text-decoration: none;
   background-color: #003b8e;
   color: white;
   font-size: 18px;
@@ -173,19 +174,7 @@
   background-color: #ffb84d;
   border-radius: 50%;
   right: -20%;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-15px) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+  /* Animation removed */
 }
 
 .family-image {
@@ -266,14 +255,23 @@
   }
   
   .oval-background {
-    width: 136%;
-    height: 126%;
-    right: -19%;
-    top: -44px;
+    display: none; /* Hide oval background on mobile */
+  }
+  
+  .rectangle-background {
+    display: block; /* Show rectangle background on mobile */
+    position: absolute;
+    width: 100%;
+    height: 91%;
+    background-color: #ffb84d;
+    border-radius: 0px;
+    top: 0;
+    left: 0;
   }
   
   .family-image {
     width: 80%;
+    max-width: 300px; /* Add max-width to control the image size */
   }
 }
 
@@ -304,5 +302,10 @@
   .social-icon {
     width: 30px;
     height: 30px;
+  }
+  
+  .family-image {
+    width: 135%;
+    max-width: 500px; /* Add max-width to control the image size */
   }
 }

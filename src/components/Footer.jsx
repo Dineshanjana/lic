@@ -1,51 +1,49 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-column">
-          <h3>Insurance Products</h3>
+          <h3>Lic Plans</h3>
           <ul>
-            <li><a href="#">Home Insurance</a></li>
-            <li><a href="#">Auto Insurance</a></li>
-            <li><a href="#">Health Insurance</a></li>
-            <li><a href="#">Life Insurance</a></li>
-            <li><a href="#">Business Insurance</a></li>
+            <li><Link to="/pension-plan">Pension Plans</Link></li>
+            <li><Link to="/ulip-plan">Ulip Plans</Link></li>
+            <li><Link to="/term-plan">Term Plans</Link></li>
+            <li><Link to="/money-back-plan">MoneyBack Plans</Link></li>
+            <li><Link to="/whole-life-plan">Wholelife Plans</Link></li>
+            <li><Link to="/child-plan">Child Plans</Link></li>
+            <li><Link to="/endowment-plan">Endowment Plans</Link></li>
           </ul>
         </div>
         <div className="footer-column">
           <h3>Resources</h3>
           <ul>
-            <li><a href="#">Insurance Guides</a></li>
-            <li><a href="#">Claims Process</a></li>
-            <li><a href="#">Coverage Calculator</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="https://licindia.in/know-your-life-insurance">Insurance Guides</a></li>
+            <li><a href="https://licindia.in/claims-settlement-requirements">Claims Process</a></li>
+            <li><a href="https://www.licpremiumcalculator.in">Coverage Calculator</a></li>
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Company</h3>
+          <h3>My Self</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><Link to="/about-us">About Us</Link></li>
+            <li><Link to="/contact-us">Contact Us</Link></li>
           </ul>
         </div>
         <div className="footer-column">
           <h3>Contact</h3>
           <ul>
-            <li>123 Insurance Ave.</li>
-            <li>New York, NY 10001</li>
-            <li>(800) 123-4567</li>
-            <li>support@secureshield.com</li>
+            <li>Near Railway  Station</li>
+            <li>Alwar, Rajasthan, India</li>
+            <li>(+91) 9414347070</li>
+            <li>vishaljoshilic@gmail.com</li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} SecureShield Insurance. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Vishal Insurance. All rights reserved.</p>
       </div>
 
       <style jsx>{`
