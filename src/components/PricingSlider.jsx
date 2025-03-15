@@ -94,7 +94,7 @@ const PricingSlider = () => {
   const pricingData = [
     {
       image: First,
-      title: "LIC Jeevan Amar",
+      title: "LIC Jeevan Umang",
       description: "A non-linked, non-participating, term insurance plan.",
       buttonText: "Apply Now",
       buttonVariant: "blue",
@@ -109,6 +109,21 @@ const PricingSlider = () => {
     },
     {
       image: Second,
+      title: "LIC Jeevan Utsav",
+      description: "A limited premium paying, non-linked, with-profits endowment plan.",
+      buttonText: "Apply Now",
+      buttonVariant: "blue",
+      features: [
+        "Combination of protection and savings",
+        "Limited premium payment term",
+        "Loan facility available",
+        "Tax benefits under Section 80C",
+        "Maturity benefit"
+      ],
+      className: "light-blue"
+    },
+    {
+      image: Third,
       title: "LIC Tech Term",
       description: "An online term insurance plan with attractive features.",
       buttonText: "Apply Now",
@@ -121,21 +136,6 @@ const PricingSlider = () => {
         "Tax benefits under Section 80C"
       ],
       className: "blue"
-    },
-    {
-      image: Third,
-      title: "LIC Jeevan Labh",
-      description: "A limited premium paying, non-linked, with-profits endowment plan.",
-      buttonText: "Apply Now",
-      buttonVariant: "blue",
-      features: [
-        "Combination of protection and savings",
-        "Limited premium payment term",
-        "Loan facility available",
-        "Tax benefits under Section 80C",
-        "Maturity benefit"
-      ],
-      className: "light-blue"
     }
   ];
 

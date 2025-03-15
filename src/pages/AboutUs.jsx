@@ -16,7 +16,7 @@ const AboutUs = () => {
     <div className="main-bd">
       <div className="about-container">
         <div className="gradient-circle"></div>
-        
+
         <div className="layout-container">
           <div className="content-section">
             <div className="header-section">
@@ -33,7 +33,7 @@ const AboutUs = () => {
             <div className="content">
               <h2>Why Choose Vishal Joshi?</h2>
               <ul>
-                <li>20+ Years of Expertise – Extensive knowledge of LIC policies and financial planning</li>
+                <li>21+ Years of Expertise – Extensive knowledge of LIC policies and financial planning</li>
                 <li>Customer-Centric Approach – Tailored insurance solutions to fit your needs</li>
                 <li>Hassle-Free Service – Smooth policy issuance, claims assistance, and premium management</li>
                 <li>Comprehensive Insurance Solutions – Life insurance, child education plans, pension schemes, and investment-linked policies</li>
@@ -43,12 +43,15 @@ const AboutUs = () => {
             <div className="content">
               <h2>Services Offered</h2>
               <ul>
-                <li>Life Insurance Policies – Secure your family's future</li>
-                <li>Retirement & Pension Plans – Plan for a stress-free retirement</li>
-                <li>Child Education Plans – Ensure a bright future for your child</li>
-                <li>Wealth Creation & Savings Plans – Grow your savings with smart investments</li>
+                <li>Life Insurance – Secure your family's future</li>
+                <li>Children Future – Plan for your child's education & well-being</li>
+                <li>Income Protection – Financial security during uncertain times</li>
+                <li>Retirement Planning – Build a stress-free post-retirement life</li>
+                <li>Health Insurance – Cover medical expenses with the best plans</li>
+                <li>Term Insurance – High coverage at affordable premiums</li>
               </ul>
             </div>
+
 
             <div className="map-section">
               <h2>Our Client Network</h2>
@@ -56,18 +59,18 @@ const AboutUs = () => {
                 <div className="india-map-wrapper">
                   <Globe /> {/* Replace the India map with the Globe component */}
                 </div>
-                
+
                 <div className="client-locations-grid">
                   {clientLocations.map(location => (
                     <div key={location.id} className="location-card">
                       <div className="location-name">{location.name}</div>
                       <div className="location-clients">{location.clients} clients</div>
-                      <div className="location-indicator" style={{width: `${Math.min((location.clients / 150) * 100, 100)}%`}}></div>
+                      <div className="location-indicator" style={{ width: `${Math.min((location.clients / 150) * 100, 100)}%` }}></div>
                     </div>
                   ))}
                 </div>
-                
-                <div className="client-stats">
+
+                {/* <div className="client-stats">
                   <div className="stat-card">
                     <div className="stat-number">400+</div>
                     <div className="stat-label">Happy Clients</div>
@@ -80,7 +83,7 @@ const AboutUs = () => {
                     <div className="stat-number">₹50Cr+</div>
                     <div className="stat-label">Coverage Provided</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -91,28 +94,28 @@ const AboutUs = () => {
                   <Phone className="contact-icon" />
                   <div className="contact-text">
                     <span className="contact-label">Phone</span>
-                    <span className="contact-value">+91 98765 43210</span>
+                    <span className="contact-value">+91 9414347070</span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <MapPin className="contact-icon" />
                   <div className="contact-text">
                     <span className="contact-label">Location</span>
-                    <span className="contact-value">Alwar, Rajasthan</span>
+                    <span className="contact-value">Rajasthan, India</span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <Mail className="contact-icon" />
                   <div className="contact-text">
                     <span className="contact-label">Email</span>
-                    <span className="contact-value">vishal.joshi@example.com</span>
+                    <span className="contact-value">vishaljoshilic@gmail.com</span>
                   </div>
                 </div>
               </div>
               <Link to="/contact-us" className="cta-button">Secure Your Future Today</Link>
             </div>
           </div>
-          
+
           <div className="image-section">
             <div className="client-image-container">
               <img src={Vishal} alt="Vishal Joshi" className="client-image" />
@@ -120,13 +123,12 @@ const AboutUs = () => {
                 <Award className="badge-icon" />
                 <div className="badge-text">Top Agent 2024</div>
               </div>
-              <div className="experience-tag">20+ Years Experience</div>
+              <div className="experience-tag">21+ Years Experience</div>
             </div>
-            
+
             <div className="testimonial-card">
               <div className="quote-mark">"</div>
-              <p className="testimonial-text">Vishal helped my family secure our financial future with the perfect policy. His guidance was invaluable!</p>
-              <div className="testimonial-author">- Rahul Sharma, Delhi</div>
+              <p className="testimonial-text">We provide expert guidance, personalized policy recommendations, and seamless assistance to secure your financial future.</p>
             </div>
           </div>
         </div>

@@ -10,22 +10,18 @@ const ChildPlan = () => {
   const subPlans = [
     {
       title: "LIC's Jeevan Tarun",
-      planNo: '934',
-      uinNo: '512N299V04',
       icon: <Briefcase className="sub-plan-icon" />,
+      description: "A flexible plan that offers survival benefits during your child's growth milestones, ensuring educational and career needs are met.",
       isSpecial: false,
     },
     {
       title: "LIC's Amritbaal",
-      planNo: '936',
-      uinNo: '512N301V05',
       icon: <BarChart2 className="sub-plan-icon" />,
+      description: "A secure investment plan that ensures guaranteed returns for your child's future aspirations, with added life cover benefits.",
       isSpecial: false,
     },
     {
       title: "Apply Now for Child Plan with Full Digital",
-      planNo: '',
-      uinNo: '',
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
       isSpecial: true,
     }
@@ -56,8 +52,7 @@ const ChildPlan = () => {
         <div className="pages-hero-content-centered">
           <h1>Child Plans</h1>
           <p className="pages-hero-description">
-            A child plan helps parents secure their child's future financially by providing funds for education, marriage,
-            or other significant milestones. It ensures financial stability even in the absence of parents.
+            Secure your child's future with LIC's specially designed child plans, ensuring financial stability during their crucial milestones.
           </p>
 
           <div className="hero-cta-buttons">
@@ -82,17 +77,12 @@ const ChildPlan = () => {
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
               {plan.icon}
               <h3 className="sub-plan-title">{plan.title}</h3>
-              {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
-              {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
-              {plan.isSpecial ? (
+              <p className="sub-plan-description">{plan.description}</p>
+              {plan.isSpecial &&
                 <Link className="special-apply-now-btn" to="/application-form">
                   Apply Now <ArrowRight size={16} />
                 </Link>
-              ) : (
-                <Link href="#" className="sub-plan-link" to="/application-form">
-                  Click Here <ArrowRight size={16} />
-                </Link>
-              )}
+              }
             </div>
           ))}
         </div>

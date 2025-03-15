@@ -5,7 +5,7 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import WhatsAppChat from './components/WhatsAppChat.jsx';
-import Loader from './components/Loader.jsx'; // Import the new Loader component
+import Loader from './components/Loader.jsx'; 
 
 // Lazy load pages and components
 const HomePageLayout = lazy(() => import('./components/HomePageLayout.jsx'));

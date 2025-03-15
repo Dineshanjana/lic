@@ -169,7 +169,7 @@
 
 .oval-background {
   position: absolute;
-  width: 120%;
+  width: 135%;
   height: 140%;
   background-color: #ffb84d;
   border-radius: 50%;
@@ -178,6 +178,7 @@
 }
 
 .family-image {
+  bottom: -85px;
   width: 125%;
   height: auto;
   object-fit: cover;

@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import '../Css/LicTermPlans.css';
 import { Link} from 'react-router-dom';
-import FatherSon from '../assets/img/father-son-relation.png';
-
+import FatherSon from '../assets/img/licTermSec.png';
 const TermPlansSection = () => {
   const applyButtonRef = useRef(null);
 

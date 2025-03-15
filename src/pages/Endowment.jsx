@@ -10,56 +10,48 @@ const Endowment = () => {
   const subPlans = [
     {
       title: "LIC's New Endowment",
-      planNo: '914',
-      uinNo: '512N288V02',
       icon: <Calculator className="sub-plan-icon" />,
+      description: "A secure savings and insurance plan offering assured returns with life protection.",
       isSpecial: false,
     },
     {
       title: "LIC's New Jeevan Anand",
-      planNo: '915',
-      uinNo: '512N279V02',
       icon: <Briefcase className="sub-plan-icon" />,
+      description: "Combines life insurance coverage with financial benefits for lifelong security.",
       isSpecial: false,
     },
     {
       title: "LIC's Single Premium Endowment",
-      planNo: '917',
-      uinNo: '512N287V02',
       icon: <Gift className="sub-plan-icon" />,
+      description: "A one-time premium plan ensuring security and maturity benefits.",
+      isSpecial: false,
     },
     {
       title: "LIC's Jeevan Lakshya",
-      planNo: '933',
-      uinNo: '512N297V02',
       icon: <Target className="sub-plan-icon" />,
+      description: "Designed to secure your family's future with guaranteed payouts.",
       isSpecial: false,
     },
     {
       title: "LIC's Jeevan Labh",
-      planNo: '936',
-      uinNo: '512N304V02',
       icon: <BarChart2 className="sub-plan-icon" />,
+      description: "A limited premium endowment plan ensuring financial stability.",
       isSpecial: false,
     },
     {
       title: "LIC's Bima Jyoti",
-      planNo: '945',
-      uinNo: '512N322V01',
       icon: <BarChart2 className="sub-plan-icon" />,
+      description: "Provides guaranteed returns with assured growth and life cover.",
       isSpecial: false,
     },
     {
       title: "LIC's Jeevan Azad",
-      planNo: '868',
-      uinNo: '512N389V01',
       icon: <BarChart2 className="sub-plan-icon" />,
+      description: "Offers guaranteed returns with flexible term options for maximum benefit.",
       isSpecial: false,
     },
     {
       title: "Apply Now for Pension Plan with Full Digital",
-      planNo: '',
-      uinNo: '',
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
       isSpecial: true,
     }
@@ -94,7 +86,7 @@ const Endowment = () => {
           </p>
 
           <div className="hero-cta-buttons">
-          <Link to="/application-form" className="apply-now-btn">
+            <Link to="/application-form" className="apply-now-btn">
               Apply Now <ArrowRight className="btn-icon" size={20} />
             </Link>
             <Link to="/contact-us" className="contact-us-btn">
@@ -115,11 +107,12 @@ const Endowment = () => {
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
               {plan.icon}
               <h3 className="sub-plan-title">{plan.title}</h3>
-              {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
-              {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
-              <a href="#" className="sub-plan-link">
-                Click Here <ArrowRight size={16} />
-              </a>
+              <p className="sub-plan-description">{plan.description}</p>
+              {plan.isSpecial &&
+                <Link className="special-apply-now-btn" to="/application-form">
+                  Apply Now <ArrowRight size={16} />
+                </Link>
+              }
             </div>
           ))}
         </div>

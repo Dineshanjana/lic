@@ -10,35 +10,29 @@ const TermPlan = () => {
   const subPlans = [
     {
       title: "LIC's Saral Jeevan Bima",
-      planNo: '859',
-      uinNo: '512N335V01',
+      description: "A simple and affordable term plan that offers life cover for policyholders with flexible terms.",
       icon: <Calculator className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
       title: "LIC's Yuva Term",
-      planNo: '860',
-      uinNo: '512N336V01',
+      description: "Designed for young individuals to secure their family’s financial future with affordable premiums.",
       icon: <Briefcase className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
       title: "LIC's Yuva Credit Life",
-      planNo: '861',
-      uinNo: '512N337V01',
+      description: "A credit-linked life insurance plan that ensures your outstanding debts are covered in case of unforeseen events.",
       icon: <Gift className="sub-plan-icon" />,
     },
     {
       title: "LIC's New Jeevan Amar",
-      planNo: '862',
-      uinNo: '512N338V01',
+      description: "A comprehensive term plan that provides flexible premium payment options and high coverage for complete peace of mind.",
       icon: <Target className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
-      title: "Apply Now for Pension Plan with Full Digital",
-      planNo: '',
-      uinNo: '',
+      title: "Apply Now for Term Plan with Full Digital Process",
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
       isSpecial: true,
     }
@@ -67,12 +61,12 @@ const TermPlan = () => {
       >
         <div className="pages-hero-content-centered">
           <h1>Term Plans</h1>
-          <p className="pages-hero-description" style={{color: '#3a482e', fontWeight: 'bold'}}>
+          <p className="pages-hero-description" style={{ color: '#3a482e', fontWeight: 'bold' }}>
             LIC Term Plans provide financial security for your family at affordable premiums, ensuring that your loved ones are protected in case of any unforeseen circumstances.
           </p>
 
           <div className="hero-cta-buttons">
-          <Link to="/application-form" className="apply-now-btn">
+            <Link to="/application-form" className="apply-now-btn">
               Apply Now <ArrowRight className="btn-icon" size={20} />
             </Link>
             <Link to="/contact-us" className="contact-us-btn">
@@ -93,11 +87,12 @@ const TermPlan = () => {
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
               {plan.icon}
               <h3 className="sub-plan-title">{plan.title}</h3>
-              {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
-              {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
-              <a href="#" className="sub-plan-link">
-                Click Here <ArrowRight size={16} />
-              </a>
+              <p className="sub-plan-description">{plan.description}</p>
+              {plan.isSpecial &&
+                <Link className="special-apply-now-btn" to="/application-form">
+                  Apply Now <ArrowRight size={16} />
+                </Link>
+              }
             </div>
           ))}
         </div>

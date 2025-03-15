@@ -10,42 +10,36 @@ const Pension = () => {
   const subPlans = [
     {
       title: "LIC's New Pension Plus",
-      planNo: '867',
-      uinNo: '512L347V01',
-      icon: <Calculator className="sub-plan-icon" />,
+      description: "A unit-linked pension plan offering flexible premiums and guaranteed returns for your retirement goals.",
+      icon: <Calculator className="sub-plan-icon" />, 
       isSpecial: false,
     },
     {
       title: "LIC's Jeevan Akshay-VII",
-      planNo: '857',
-      uinNo: '512N337V06',
+      description: "An immediate annuity plan that ensures lifelong regular income with flexible payout options.",
       icon: <Briefcase className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
       title: "LIC's New Jeevan Shanti",
-      planNo: '758',
-      uinNo: '512N338V07',
+      description: "A deferred annuity plan that offers guaranteed payouts with multiple options for flexibility.",
       icon: <Gift className="sub-plan-icon" />,
+      isSpecial: false,
     },
     {
       title: "LIC's Saral Pension",
-      planNo: '862',
-      uinNo: '512N342V05',
+      description: "A simple yet effective pension plan that offers security with lifelong income benefits.",
       icon: <Target className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
       title: "LIC's Smart Pension",
-      planNo: '879',
-      uinNo: '512N386V01',
+      description: "A smart retirement solution that balances investment growth and guaranteed returns.",
       icon: <BarChart2 className="sub-plan-icon" />,
       isSpecial: false,
     },
     {
       title: "Apply Now for Pension Plan with Full Digital",
-      planNo: '',
-      uinNo: '',
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
       isSpecial: true,
     }
@@ -103,17 +97,12 @@ const Pension = () => {
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
               {plan.icon}
               <h3 className="sub-plan-title">{plan.title}</h3>
-              {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
-              {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
-              {plan.isSpecial ? (
-                <button className="special-apply-now-btn">
+              <p className="sub-plan-description">{plan.description}</p>
+              {plan.isSpecial &&
+                <Link className="special-apply-now-btn" to="/application-form">
                   Apply Now <ArrowRight size={16} />
-                </button>
-              ) : (
-                <a href="#" className="sub-plan-link">
-                  Click Here <ArrowRight size={16} />
-                </a>
-              )}
+                </Link>
+              }
             </div>
           ))}
         </div>

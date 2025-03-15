@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Calculator, Gift } from 'lucide-react';
 import '../Css/CombinedStyles.css';
 import LICLogo from '../assets/img/lic-logo.png';
 import TrustSection from '../components/trust';
@@ -9,18 +9,16 @@ const WholeLifePlans = () => {
   const subPlans = [
     {
       title: "Jeevan Umang",
-      planNo: '945',
-      uinNo: '512N312V02',
+      icon: <Calculator className="sub-plan-icon" />, 
+      description: "A unique whole life plan that offers annual survival benefits after premium payment term, ensuring a steady source of income and lifelong coverage."
     },
     {
       title: "Jeevan Utsav",
-      planNo: '871',
-      uinNo: '512N350V01',
+      icon: <Gift className="sub-plan-icon" />,
+      description: "A celebration of financial security! This plan provides assured lifetime benefits with flexible payout options for a worry-free future."
     },
     {
-      title: "Apply Now for ULIP Plan with Full Digital Process",
-      planNo: '',
-      uinNo: '',
+      title: "Apply Now for Whole Life Plan with Full Digital Process",
       icon: <img src={LICLogo} alt="LIC Logo" className="lic-logo" />,
       isSpecial: true,
     }
@@ -51,7 +49,7 @@ const WholeLifePlans = () => {
           </p>
 
           <div className="hero-cta-buttons">
-          <Link to="/application-form" className="apply-now-btn">
+            <Link to="/application-form" className="apply-now-btn">
               Apply Now <ArrowRight className="btn-icon" size={20} />
             </Link>
             <Link to="/contact-us" className="contact-us-btn">
@@ -69,11 +67,12 @@ const WholeLifePlans = () => {
             <div key={index} className={`sub-plan-card ${plan.isSpecial ? 'special-plan-card' : ''}`}>
               {plan.icon}
               <h3 className="sub-plan-title">{plan.title}</h3>
-              {plan.planNo && <p className="sub-plan-description">Plan No: {plan.planNo}</p>}
-              {plan.uinNo && <p className="sub-plan-description">UIN No: {plan.uinNo}</p>}
-              <a href="#" className="sub-plan-link">
-                Click Here <ArrowRight size={16} />
-              </a>
+              {plan.description && <p className="sub-plan-description">{plan.description}</p>}
+              {plan.isSpecial &&
+                <Link className="special-apply-now-btn" to="/application-form">
+                  Apply Now <ArrowRight size={16} />
+                </Link>
+              }
             </div>
           ))}
         </div>

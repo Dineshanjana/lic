@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { Dropdown, Menu } from 'antd';
 import { UserOutlined, LogoutOutlined, DownOutlined } from '@ant-design/icons';
+import LICLogo from '../assets/img/lic-logo.png';
 import '../Css/Navbar.css';
 import AuthModal from './AuthModal';
 
@@ -11,7 +12,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialMode, setInitialMode] = useState("login");
   const [userFullName, setUserFullName] = useState(null);
- 
+
   const [showDesktopDropdown, setShowDesktopDropdown] = useState(false);
   const [showDesktopSubDropdown, setShowDesktopSubDropdown] = useState(false);
   const [expandedDropdowns, setExpandedDropdowns] = useState({
@@ -63,8 +64,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        isMenuOpen && 
-        sidebarRef.current && 
+        isMenuOpen &&
+        sidebarRef.current &&
         !sidebarRef.current.contains(event.target) &&
         !event.target.closest('.hamburger')
       ) {
@@ -101,7 +102,7 @@ const Navbar = () => {
     }));
   };
 
-  
+
 
 
   return (
@@ -109,7 +110,8 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-header">
           <Link to="/" className="logo link">
-            <span>Vishal Insurance</span>
+            <img src={LICLogo} alt="LIC Logo" className="lic-logo" />
+            <span className="company-name">LIC With Vishal</span>
           </Link>
           <div className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
@@ -142,7 +144,7 @@ const Navbar = () => {
                       onMouseEnter={() => setShowDesktopSubDropdown(true)}
                       onMouseLeave={() => setShowDesktopSubDropdown(false)}
                     >
-                      <Link to="/edowment-plan" className="dropdown-item link">Endowment Plans</Link>
+                      <Link to="/endowment-plan" className="dropdown-item link">Endowment Plans</Link>
                       <Link to="/whole-life-plan" className="dropdown-item link">Whole Life Plans</Link>
                       <Link to="/money-back-plan" className="dropdown-item link">Money Back Plans</Link>
                       <Link to="/term-plan" className="dropdown-item link">Term Assurance Plans</Link>
@@ -151,7 +153,7 @@ const Navbar = () => {
                 </div>
                 <Link to="/pension-plan" className="dropdown-item link">Pension Plans</Link>
                 <Link to="/child-plan" className="dropdown-item link">Child Plans</Link>
-                <Link to="/ulip-plan" className="dropdown-item link">Ulip Plans</Link>
+                <Link to="/ulip-plan" className="dropdown-item link">Unit Linked Plans</Link>
               </div>
             )}
           </div>
@@ -213,7 +215,7 @@ const Navbar = () => {
                   </div>
 
                   <div className={`sidebar-dropdown-content sub ${expandedDropdowns.insurance ? 'active' : ''}`}>
-                    <Link to="/edowment-plan" className="sidebar-link sub" onClick={toggleMenu}>
+                    <Link to="/endowment-plan" className="sidebar-link sub" onClick={toggleMenu}>
                       Endowment Plans
                     </Link>
                     <Link to="/whole-life-plan" className="sidebar-link sub" onClick={toggleMenu}>
@@ -235,7 +237,7 @@ const Navbar = () => {
                   Child Plans
                 </Link>
                 <Link to="/ulip-plan" className="sidebar-link" onClick={toggleMenu}>
-                  Ulip Plans
+                  Unit Linked Plans
                 </Link>
               </div>
             </div>

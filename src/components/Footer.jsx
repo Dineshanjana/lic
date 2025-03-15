@@ -35,8 +35,7 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Contact</h3>
           <ul>
-            <li>Near Railway  Station</li>
-            <li>Alwar, Rajasthan, India</li>
+            <li>Rajasthan, India</li>
             <li>(+91) 9414347070</li>
             <li>vishaljoshilic@gmail.com</li>
           </ul>
