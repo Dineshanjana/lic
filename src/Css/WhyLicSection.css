@@ -1,0 +1,306 @@
+/* Keep all imports and :root variables unchanged */
+
+.why-lic-section {
+    width: 100%;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .why-lic-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .why-lic-header {
+    text-align: left;
+    color: var(--text-light);
+  }
+  
+  .why-lic-header h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  
+  .why-lic-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .why-lic-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .combined-card {
+    width: 100%;
+    max-width: 1200px;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 3rem;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .combined-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .combined-card::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), transparent);
+    opacity: 0.15;
+    top: -50px;
+    right: -50px;
+    z-index: 0;
+  }
+  
+  .card-content-wrapper {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem; /* Added space before benefits section */
+  }
+  
+  .strength-section,
+  .claim-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 0 1rem;
+  }
+  
+  /* Strength Section Styles */
+  .strength-section .icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .strength-section .strength-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    animation: pulse-icon 2s infinite;
+  }
+  
+  .strength-section h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-item p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  
+  /* Claim Section Styles */
+  .claim-section h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  
+  .claim-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-around;
+  }
+  
+  /* Benefits Section Styles */
+  .benefits-section {
+    width: 100%;
+  }
+  
+  .benefits-heading {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .benefits-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .benefit-item {
+    flex: 1 1 calc(33.33% - 1rem); /* Three items per row with gap */
+    min-width: 250px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-light);
+  }
+  
+  .claim-item {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .claim-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+    transition: var(--transition);
+  }
+  
+  .claim-circle span {
+    font-size: 1.1rem;
+  }
+  
+  .claim-item p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .source-text {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Keep all animations unchanged */
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .why-lic-section {
+      padding: 2rem 1rem;
+    }
+  
+    .why-lic-header h2 {
+      font-size: 2rem;
+    }
+  
+    .why-lic-header p {
+      font-size: 1rem;
+    }
+  
+    .combined-card {
+      padding: 2rem;
+    }
+  
+    .card-content-wrapper {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .strength-section,
+    .claim-section {
+      padding: 0;
+    }
+  
+    .strength-section h3,
+    .claim-section h3 {
+      font-size: 1.5rem;
+    }
+  
+    .benefits-heading {
+      font-size: 1.5rem;
+    }
+  
+    .benefit-item {
+      flex: 1 1 calc(50% - 1rem); /* Two items per row */
+    }
+  
+    .claim-circle {
+      width: 80px;
+      height: 80px;
+      font-size: 0.9rem;
+    }
+  
+    .claim-circle span {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .why-lic-header h2 {
+      font-size: 1.75rem;
+    }
+  
+    .strength-section h3,
+    .claim-section h3 {
+      font-size: 1.25rem;
+    }
+  
+    .benefits-heading {
+      font-size: 1.25rem;
+    }
+  
+    .benefit-item {
+      flex: 1 1 100%; /* One item per row */
+    }
+  
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .stat-item p {
+      font-size: 1.2rem;
+    }
+  
+    .claim-circle {
+      width: 70px;
+      height: 70px;
+      font-size: 0.8rem;
+    }
+  
+    .claim-circle span {
+      font-size: 0.8rem;
+    }
+  }

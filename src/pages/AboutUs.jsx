@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, MapPin, Mail, Award } from 'lucide-react'; // Imported Lucide icons
 import '../Css/AboutUs.css';
 import Vishal from '../assets/img/achiv/vishal.jpeg';
+import MDRTLogo from '../assets/img/mdrt-logo.jpeg';
 import Globe from '../components/globe.jsx'; // Import the Globe component
 import { Link } from "react-router-dom"
 
@@ -53,7 +54,7 @@ const AboutUs = () => {
             </div>
 
             <div className="content mdrt-award">
-              <h2><Award/> LIC MDRT Award Winner</h2>
+              <h2><img src={MDRTLogo} alt="MDRT Logo" className="mdrt-logo" /> LIC MDRT Award Winner(USA)</h2>
               <p className="mdrt-description">Vishal Joshi has been recognized with the prestigious LIC MDRT Award for his outstanding performance in securing financial futures. This award signifies dedication, excellence, and remarkable achievements in the insurance sector.</p>
             </div>
 

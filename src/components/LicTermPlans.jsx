@@ -43,7 +43,7 @@ const TermPlansSection = () => {
   return (
     <section className="term-plans-section">
       <div className="left-content">
-        <h1 className="tagline">Protect your loved ones with LIC's term plans</h1>
+        <h1 className="tagline">Protect your loved ones with LIC's guaranteed plans</h1>
         <div className="features">
           <div className="feature-item">
             <div className="check-icon"></div>

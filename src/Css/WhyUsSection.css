@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --near-black: #000814;
+  --gold: #ffc300;
+  --bright-gold: #ffdd00;
+  --dark-navy: #001d3d;
+  --navy: #003566;
+  --bright-navy: #0a4c8b;
+  --text-light: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --transition: all 0.3s ease;
+  --bright-bg: rgba(255, 215, 0, 0.2);
+}
+
+.why-Us-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: #001d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.why-Us-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Bright Animated Heading Styles with horizontal layout */
+.bright-heading-Us {
+  background: var(--bright-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* New flex container for horizontal layout */
+.heading-flex-container {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.bright-heading-Us h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--bright-gold);
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  flex-shrink: 0;
+  margin: 0;
+  min-width: 300px;
+  text-align: left;
+}
+
+.heading-content-Us {
+  flex: 1;
+}
+
+.heading-content-Us p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+  text-align: left;
+}
+
+/* Stats Boxes Styles */
+.stats-boxes-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.stat-box {
+  flex: 1;
+  background: rgba(10, 76, 139, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 0.1rem 0.1rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bright-gold), transparent);
+  opacity: 0.2;
+  top: -30px;
+  right: -30px;
+  z-index: 0;
+}
+
+.stat-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  color: var(--bright-gold);
+  animation: pulse-icon 2s infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+}
+
+.stat-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--bright-gold);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.stat-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-icon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 4px 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.animate-on-load {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .heading-flex-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .bright-heading-Us h2 {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-Us-section {
+    padding: 2rem 1rem;
+  }
+
+  .bright-heading-Us {
+    padding: 1.5rem;
+  }
+
+  .bright-heading-Us h2 {
+    font-size: 2rem;
+  }
+
+  .heading-content-Us p {
+    font-size: 1rem;
+  }
+
+  .stats-boxes-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bright-heading-Us h2 {
+    font-size: 1.75rem;
+  }
+
+  .heading-content-Us p {
+    font-size: 0.9rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+}

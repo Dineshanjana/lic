@@ -37,8 +37,11 @@
   font-size: 1rem;
   opacity: 0.9;
   margin-bottom: 1.5rem;
+  /* color: #041434; */
 }
-
+.testimonial-content p{
+  color: #071b41;
+}
 /* Add Testimonial Button */
 .add-testimonial-btn {
   background: linear-gradient(135deg, #ffd700, #ff9d00);
@@ -125,19 +128,22 @@
   line-height: 1;
 }
 
-.quote {
+.quotee {
+  color:#041434;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
   margin-top: 2rem;
   position: relative;
   z-index: 1;
+ 
 }
 
 .testimonial-author {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color:#041434;
 }
 
 .testimonial-author h3 {
@@ -433,7 +439,7 @@
     padding: 1.5rem;
   }
 
-  .quote {
+  .quotee {
     font-size: 0.875rem;
     margin-top: 1.5rem;
   }
@@ -464,7 +470,7 @@
     padding: 1.25rem;
   }
 
-  .quote {
+  .quotee {
     font-size: 0.8125rem;
     margin-top: 1.25rem;
   }

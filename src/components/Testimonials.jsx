@@ -72,7 +72,7 @@ const Testimonials = () => {
     <section className="testimonials-section">
       <div className="testimonials-header">
         <h1>What Our Clients Are Saying</h1>
-        <p>Hear from our LIC representatives about protecting your family's future</p>
+        <p>Our happy policyholders speak for us! Hear from our satisfied clients who have secured their future with our trusted LIC insurance solutions</p>
         <button onClick={() => setIsModalOpen(true)} className="add-testimonial-btn">
           <Plus size={16} /> Add Your Testimonial
         </button>
@@ -87,13 +87,13 @@ const Testimonials = () => {
                   <div className="quote-icon">❝</div>
                   {testimonialData.length > 0 && testimonialData[activeIndex] ? (
                     <>
-                      <p className="quote">{testimonialData[activeIndex].message}</p>
+                      <p className="quotee" style={{ color: '#041434' }}>{testimonialData[activeIndex].message}</p>
                       <div className="testimonial-author">
                         <h3>{testimonialData[activeIndex].name}</h3>
                       </div>
                     </>
                   ) : (
-                    <p className="quote">No reviews available at the moment. Be the first to share your experience!</p>
+                    <p className="quotee">No reviews available at the moment. Be the first to share your experience!</p>
                   )}
                 </div>
               </div>

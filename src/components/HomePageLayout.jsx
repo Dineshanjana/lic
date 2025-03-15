@@ -5,6 +5,8 @@ import Carousel from './Carousel.jsx';
 import PricingSlider from './PricingSlider.jsx';
 import LicTermPlans from './LicTermPlans.jsx';
 import Testimonial from './Testimonials.jsx';
+import WhyLicSection from './WhyLicSection.jsx';
+ import WhyUsSection from './WhyUsSection.jsx';
 
 const HomePageLayout = () => {
   return (
@@ -13,9 +15,12 @@ const HomePageLayout = () => {
       <HeroSection />
        <LicTermPlans/> 
       <ServiceSection />
+      <WhyLicSection/>
        <Carousel /> 
        <PricingSlider />  
        <Testimonial/>  
+       
+       <WhyUsSection/>
       
     </div>
   );

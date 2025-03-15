@@ -559,6 +559,15 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 195, 0, 0.3);
   }
+  /* Inside AgentProfile.css */
+
+/* Style for the MDRT logo */
+.mdrt-logo {
+  width: 35px; /* Match the size of the Lucide Award icon (1.5rem = 24px assuming 1rem = 16px) */
+  height: 35px;
+  margin-right: 3px; /* Add some spacing between the logo and the text, similar to how icons are spaced */
+  vertical-align: middle; /* Align the logo with the text */
+}
   
   /* Enhanced responsive styles */
   @media (max-width: 1100px) {
