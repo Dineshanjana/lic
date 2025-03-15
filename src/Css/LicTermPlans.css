@@ -271,8 +271,9 @@
   }
   
   .family-image {
-    width: 80%;
-    max-width: 300px; /* Add max-width to control the image size */
+    bottom: -110px;
+    width: 221%;
+    max-width: 594px;
   }
 }
 
@@ -306,7 +307,7 @@
   }
   
   .family-image {
-    width: 135%;
-    max-width: 500px; /* Add max-width to control the image size */
+    width: 221%;
+    max-width: 594px;
   }
 }

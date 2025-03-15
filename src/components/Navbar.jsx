@@ -103,15 +103,13 @@ const Navbar = () => {
   };
 
 
-
-
   return (
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-header">
           <Link to="/" className="logo link">
-            <img src={LICLogo} alt="LIC Logo" className="lic-logo" />
-            <span className="company-name">LIC With Vishal</span>
+            <img src={LICLogo} alt="LIC Logo" className="nv-lic-logo" />
+            <span className="company-name">LICWithVishal</span>
           </Link>
           <div className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>

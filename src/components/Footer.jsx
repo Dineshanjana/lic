@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -18,14 +19,6 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="https://licindia.in/know-your-life-insurance">Insurance Guides</a></li>
-            <li><a href="https://licindia.in/claims-settlement-requirements">Claims Process</a></li>
-            <li><a href="https://www.licpremiumcalculator.in">Coverage Calculator</a></li>
-          </ul>
-        </div>
-        <div className="footer-column">
           <h3>My Self</h3>
           <ul>
             <li><Link to="/about-us">About Us</Link></li>
@@ -40,13 +33,20 @@ const Footer = () => {
             <li>vishaljoshilic@gmail.com</li>
           </ul>
         </div>
+        <div className="footer-column">
+          <h3>Follow Us</h3>
+          <ul className="social-links">
+            <li><a href="https://www.facebook.com/vishaljoshilic" target="_blank" rel="noopener noreferrer"><Facebook /> Facebook</a></li>
+            <li><a href="https://www.instagram.com/vishaljoshilic" target="_blank" rel="noopener noreferrer"><Instagram /> Instagram</a></li>
+            <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><Twitter /> Twitter</a></li>
+          </ul>
+        </div>
       </div>
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Vishal Insurance. All rights reserved.</p>
       </div>
 
       <style jsx>{`
-        /* CSS Variables */
         :root {
           --near-black: #000814;
           --gold: #ffc300;
@@ -93,6 +93,12 @@ const Footer = () => {
         .footer-column ul li a:hover {
           opacity: 1;
           color: var(--gold);
+        }
+
+        .social-links li a {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
         
         .footer-bottom {

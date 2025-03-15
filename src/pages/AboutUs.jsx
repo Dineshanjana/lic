@@ -21,8 +21,8 @@ const AboutUs = () => {
           <div className="content-section">
             <div className="header-section">
               <div className="header-text">
-                <h1>Vishal Joshi – Trusted LIC Agent Since 2003</h1>
-                <p className="subtitle">With over two decades of experience in the insurance sector, Vishal Joshi is a highly trusted and dedicated LIC Agent committed to securing financial futures.</p>
+                <h1 className="ab-heading">Vishal Joshi – Trusted LIC Agent Since 2003</h1>
+                <p className="ab-subtitle">With over two decades of experience in the insurance sector, Vishal Joshi is a highly trusted and dedicated LIC Agent committed to securing financial futures.</p>
               </div>
             </div>
 
@@ -52,6 +52,11 @@ const AboutUs = () => {
               </ul>
             </div>
 
+            <div className="content mdrt-award">
+              <h2><Award/> LIC MDRT Award Winner</h2>
+              <p className="mdrt-description">Vishal Joshi has been recognized with the prestigious LIC MDRT Award for his outstanding performance in securing financial futures. This award signifies dedication, excellence, and remarkable achievements in the insurance sector.</p>
+            </div>
+
 
             <div className="map-section">
               <h2>Our Client Network</h2>
@@ -59,7 +64,7 @@ const AboutUs = () => {
                 <div className="india-map-wrapper">
                   <Globe /> {/* Replace the India map with the Globe component */}
                 </div>
-
+{/* 
                 <div className="client-locations-grid">
                   {clientLocations.map(location => (
                     <div key={location.id} className="location-card">
@@ -68,7 +73,7 @@ const AboutUs = () => {
                       <div className="location-indicator" style={{ width: `${Math.min((location.clients / 150) * 100, 100)}%` }}></div>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* <div className="client-stats">
                   <div className="stat-card">

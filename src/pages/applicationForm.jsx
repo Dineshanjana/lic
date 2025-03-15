@@ -252,7 +252,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Personal Information</h3>
             <p className="step-description">Please provide your personal details</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="name">Full Name</label>
               <div className="input-container">
                 <User size={18} className="input-icon" />
@@ -268,7 +268,7 @@ const ApplicationForm = () => {
               </div>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="dob">Date of Birth</label>
               <div className="input-container">
                 <Calendar size={18} className="input-icon" />
@@ -283,7 +283,7 @@ const ApplicationForm = () => {
               </div>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="phone">Phone Number</label>
               <div className="input-container">
                 <Phone size={18} className="input-icon" />
@@ -299,7 +299,7 @@ const ApplicationForm = () => {
               </div>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label>Gender</label>
               <div className="radio-group">
                 <label className="radio-label">
@@ -335,7 +335,7 @@ const ApplicationForm = () => {
               </div>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="personalDocumentType">ID Proof Type</label>
               <select
                 id="personalDocumentType"
@@ -352,7 +352,7 @@ const ApplicationForm = () => {
               </select>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="personalDocumentUrl">Upload ID Proof</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -382,7 +382,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Address Details</h3>
             <p className="step-description">Please provide your address information</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="fullAddress">Full Address</label>
               <textarea
                 id="fullAddress"
@@ -396,7 +396,7 @@ const ApplicationForm = () => {
             </div>
             
             <div className="form-row">
-              <div className="form-group">
+              <div className="ap-form-group">
                 <label htmlFor="state">State</label>
                 <input
                   type="text"
@@ -409,7 +409,7 @@ const ApplicationForm = () => {
                 />
               </div>
               
-              <div className="form-group">
+              <div className="ap-form-group">
                 <label htmlFor="district">District</label>
                 <input
                   type="text"
@@ -423,7 +423,7 @@ const ApplicationForm = () => {
               </div>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="pincode">Pincode</label>
               <input
                 type="text"
@@ -436,7 +436,7 @@ const ApplicationForm = () => {
               />
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="addressDocumentType">Address Proof Type</label>
               <select
                 id="addressDocumentType"
@@ -453,7 +453,7 @@ const ApplicationForm = () => {
               </select>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="addressDocumentUrl">Upload Address Proof</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -483,7 +483,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Income Proof</h3>
             <p className="step-description">Please provide your income details</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="incomeDocumentType">Income Proof Type</label>
               <select
                 id="incomeDocumentType"
@@ -500,7 +500,7 @@ const ApplicationForm = () => {
               </select>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="incomeDocumentUrl">Upload Income Proof</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -530,7 +530,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Medical Documents</h3>
             <p className="step-description">Please provide your medical information</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="medicalDocumentType">Medical Document Type</label>
               <select
                 id="medicalDocumentType"
@@ -547,7 +547,7 @@ const ApplicationForm = () => {
               </select>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="medicalDocumentUrl">Upload Medical Document</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -577,7 +577,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Photo & Signature</h3>
             <p className="step-description">Please upload your recent photograph and signature</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="photoUrl">Upload Photograph</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -599,7 +599,7 @@ const ApplicationForm = () => {
               )}
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="signatureUrl">Upload Signature</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />
@@ -629,7 +629,7 @@ const ApplicationForm = () => {
             <h3 className="step-title">Nominee Details</h3>
             <p className="step-description">Please provide your nominee information</p>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="nomineeName">Nominee Full Name</label>
               <input
                 type="text"
@@ -642,7 +642,7 @@ const ApplicationForm = () => {
               />
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="relation">Relationship with Nominee</label>
               <input
                 type="text"
@@ -655,7 +655,7 @@ const ApplicationForm = () => {
               />
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="nomineeDocumentType">Nominee ID Proof Type</label>
               <select
                 id="nomineeDocumentType"
@@ -672,7 +672,7 @@ const ApplicationForm = () => {
               </select>
             </div>
             
-            <div className="form-group">
+            <div className="ap-form-group">
               <label htmlFor="nomineeDocumentUrl">Upload Nominee ID Proof</label>
               <div className="file-upload">
                 <Upload size={18} className="upload-icon" />

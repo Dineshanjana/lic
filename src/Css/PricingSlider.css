@@ -46,9 +46,14 @@
 .pricing-card {
   flex: 0 0 calc(25% - 15px); /* Exactly 25% minus gap */
   scroll-snap-align: center;
-  background-color: var(--dark-navy);
-  border-radius: 16px;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.37) 0px 8px 32px 0px;
+  padding: 1rem;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   min-width: 0; /* Allow shrinking */
   max-width: calc(25% - 15px); /* Prevent overflow */
@@ -64,17 +69,7 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.pricing-card.pink {
-  background: rgba(255, 239, 239, 0.5);
-}
 
-.pricing-card.blue {
-  background: rgba(239, 242, 255, 0.5);
-}
-
-.pricing-card.light-blue {
-  background: rgba(239, 247, 255, 0.5);
-}
 
 .pslider-plan-image {
   width: 100%;
@@ -86,13 +81,13 @@
 .pslider-title {
   font-size: 24px;
   margin: 16px 0;
-  color: #1a1a1a;
+  color: #fff;
 }
 
 .pslider-description {
   padding: 16px 0;
   font-size: 16px;
-  color: #333;
+  color: #fff;
 }
 
 .pslider-cta-button {
@@ -108,8 +103,14 @@
 }
 
 .pslider-cta-button.blue {
-  background-color: #007bff;
-  color: white;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to right, var(--gold), #ffda85);
+  color: var(--near-black);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .pslider-cta-button.light {

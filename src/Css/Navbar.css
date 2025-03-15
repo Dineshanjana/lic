@@ -16,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -44,7 +43,7 @@
   text-decoration: none;
 }
 
-.lic-logo {
+.nv-lic-logo {
   height: 40px;
   width: auto;
   margin-right: 0.75rem;
@@ -69,7 +68,7 @@
     font-size: 1.25rem;
   }
 
-  .lic-logo {
+  .nv-lic-logo {
     height: 32px;
   }
 }
@@ -79,7 +78,7 @@
     font-size: 1rem;
   }
 
-  .lic-logo {
+  .nv-lic-logo {
     height: 28px;
     margin-right: 0.5rem;
   }
