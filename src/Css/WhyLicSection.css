@@ -1,306 +1,587 @@
-/* Keep all imports and :root variables unchanged */
+:root {
+  --gold: #e2b15b;
+  --light-gold: #f1d092;
+  --dark-gold: #c4922c;
+  --navy: #1a2b47;
+  --dark-navy: #101a2c;
+  --near-black: #0a1018;
+  --text-light: #f5f5f5;
+  --text-medium: #b8b8b8;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --transition: all 0.3s ease;
+  --gradient-gold: linear-gradient(135deg, var(--light-gold), var(--dark-gold));
+}
 
 .why-lic-section {
-    width: 100%;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Poppins", sans-serif;
+  width: 100%;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-lic-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle at 10% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 8%),
+    radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 8%);
+  pointer-events: none;
+}
+
+.why-lic-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styling */
+.why-lic-header {
+  text-align: center;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-lic-header .subtitle {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--light-gold);
+  background: rgba(226, 177, 91, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(226, 177, 91, 0.3);
+}
+
+.why-lic-header h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.why-lic-header h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-gold);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.why-lic-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+}
+
+/* Content Styling */
+.why-lic-content {
+  display: flex;
+  justify-content: center;
+}
+
+.combined-card {
+  width: 100%;
+  max-width: 1200px;
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.combined-card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  opacity: 0.1;
+  top: -100px;
+  right: -100px;
+  filter: blur(40px);
+}
+
+.combined-card::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  opacity: 0.08;
+  bottom: -70px;
+  left: -70px;
+  filter: blur(30px);
+}
+
+/* Stats Highlights */
+.stats-highlights {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.stat-highlight-item {
+  flex: 1;
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition);
+}
+
+.stat-highlight-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.highlight-text {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+}
+
+/* Content Grid */
+.card-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+/* Strength Section */
+.strength-section {
+  flex: 1;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+}
+
+.strength-section h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.strength-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.metric-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.metric-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.metric-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.metric-info h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.metric-info p {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  line-height: 1.5;
+}
+
+/* Claim Section */
+.claim-section {
+  flex: 1;
+}
+
+.claim-section h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+/* Claim Section (continued) */
+.claim-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.claim-item {
+  display: flex;
+  justify-content: center;
+}
+
+.claim-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 8px;
+}
+
+.progress-ring-circle {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  transform-origin: center;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: calc(326.56 - (326.56 * var(--percentage)) / 100);
+  transition: stroke-dashoffset 1.5s ease-in-out;
+  filter: drop-shadow(0 0 5px rgba(226, 177, 91, 0.5));
+}
+
+.claim-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.percentage {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-medium);
+}
+
+.claim-details {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.claim-detail-item {
+  flex: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition);
+}
+
+.claim-detail-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.detail-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  font-size: 0.85rem;
+  color: var(--text-medium);
+}
+
+.source-text {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: right;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Benefits Section */
+.benefits-section {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.benefits-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.benefits-heading::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-gold);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: var(--transition);
+  line-height: 1.6;
+  border: 1px solid transparent;
+}
+
+.benefit-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(226, 177, 91, 0.2);
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.benefit-item span {
+  font-size: 0.95rem;
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-icon, .metric-icon, .benefit-icon {
+  transition: transform 0.3s ease;
+}
+
+.metric-item:hover .metric-icon,
+.benefit-item:hover .benefit-icon,
+.section-header:hover .section-icon {
+  transform: scale(1.2);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 177, 91, 0.4);
   }
-  
-  .why-lic-container {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  70% {
+    box-shadow: 0 0 0 10px rgba(226, 177, 91, 0);
   }
-  
-  .why-lic-header {
-    text-align: left;
-    color: var(--text-light);
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 177, 91, 0);
+  }
+}
+
+/* Animation for the claim circle on hover */
+.claim-circle:hover .progress-ring-circle {
+  stroke-width: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .card-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
   
   .why-lic-header h2 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  
-  .why-lic-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-  
-  .why-lic-content {
-    display: flex;
-    justify-content: center;
+    font-size: 2.25rem;
   }
   
   .combined-card {
-    width: 100%;
-    max-width: 1200px;
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 3rem;
-    color: var(--text-light);
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    padding: 2rem;
   }
   
-  .combined-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  .stat-highlight-item {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-lic-section {
+    padding: 3rem 1.5rem;
   }
   
-  .combined-card::before {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), transparent);
-    opacity: 0.15;
-    top: -50px;
-    right: -50px;
-    z-index: 0;
-  }
-  
-  .card-content-wrapper {
-    display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 3rem; /* Added space before benefits section */
-  }
-  
-  .strength-section,
-  .claim-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 0 1rem;
-  }
-  
-  /* Strength Section Styles */
-  .strength-section .icon-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .strength-section .strength-icon {
-    font-size: 3rem;
-    color: var(--gold);
-    animation: pulse-icon 2s infinite;
-  }
-  
-  .strength-section h3 {
-    font-family: "Montserrat", sans-serif;
+  .why-lic-header h2 {
     font-size: 2rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    text-align: center;
   }
   
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .stat-item {
-    text-align: center;
-  }
-  
-  .stat-item h4 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  
-  .stat-item p {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-  
-  /* Claim Section Styles */
-  .claim-section h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  
-  .claim-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: space-around;
-  }
-  
-  /* Benefits Section Styles */
-  .benefits-section {
-    width: 100%;
-  }
-  
-  .benefits-heading {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .benefits-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
+  .stats-highlights {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .benefit-item {
-    flex: 1 1 calc(33.33% - 1rem); /* Three items per row with gap */
-    min-width: 250px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-light);
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .why-lic-header h2 {
+    font-size: 1.75rem;
   }
   
-  .claim-item {
+  .combined-card {
+    padding: 1.5rem;
+  }
+  
+  .stats-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlight-number {
+    font-size: 1.75rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
     text-align: center;
-    flex: 1;
-    min-width: 120px;
+    gap: 0.5rem;
   }
   
-  .claim-circle {
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gold);
-    transition: var(--transition);
+  .strength-section h3, 
+  .claim-section h3,
+  .benefits-heading {
+    font-size: 1.5rem;
   }
   
-  .claim-circle span {
-    font-size: 1.1rem;
+  .claim-details {
+    flex-direction: column;
   }
   
-  .claim-item p {
-    font-size: 0.9rem;
-    opacity: 0.9;
+  .benefits-list {
+    grid-template-columns: 1fr;
   }
-  
-  .source-text {
-    font-size: 0.85rem;
-    opacity: 0.7;
-    text-align: center;
-    margin-top: 1rem;
+}
+
+/* Extra animations for interest */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
-  
-  /* Keep all animations unchanged */
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .why-lic-section {
-      padding: 2rem 1rem;
-    }
-  
-    .why-lic-header h2 {
-      font-size: 2rem;
-    }
-  
-    .why-lic-header p {
-      font-size: 1rem;
-    }
-  
-    .combined-card {
-      padding: 2rem;
-    }
-  
-    .card-content-wrapper {
-      flex-direction: column;
-      gap: 2rem;
-    }
-  
-    .strength-section,
-    .claim-section {
-      padding: 0;
-    }
-  
-    .strength-section h3,
-    .claim-section h3 {
-      font-size: 1.5rem;
-    }
-  
-    .benefits-heading {
-      font-size: 1.5rem;
-    }
-  
-    .benefit-item {
-      flex: 1 1 calc(50% - 1rem); /* Two items per row */
-    }
-  
-    .claim-circle {
-      width: 80px;
-      height: 80px;
-      font-size: 0.9rem;
-    }
-  
-    .claim-circle span {
-      font-size: 0.9rem;
-    }
+  50% {
+    transform: translateY(-10px);
   }
-  
-  @media (max-width: 480px) {
-    .why-lic-header h2 {
-      font-size: 1.75rem;
-    }
-  
-    .strength-section h3,
-    .claim-section h3 {
-      font-size: 1.25rem;
-    }
-  
-    .benefits-heading {
-      font-size: 1.25rem;
-    }
-  
-    .benefit-item {
-      flex: 1 1 100%; /* One item per row */
-    }
-  
-    .stats-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .stat-item p {
-      font-size: 1.2rem;
-    }
-  
-    .claim-circle {
-      width: 70px;
-      height: 70px;
-      font-size: 0.8rem;
-    }
-  
-    .claim-circle span {
-      font-size: 0.8rem;
-    }
+  100% {
+    transform: translateY(0px);
   }
+}
+
+.strength-icon, .section-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes animateProgress {
+  from {
+    stroke-dashoffset: 326.56;
+  }
+  to {
+    stroke-dashoffset: calc(326.56 - (326.56 * var(--percentage)) / 100);
+  }
+}
+
+.performance-ring.in-view {
+  animation: animateProgress 2s ease-out forwards;
+}

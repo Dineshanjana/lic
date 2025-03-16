@@ -1,70 +1,123 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../Css/WhyLicSection.css";
-import { Shield } from "lucide-react";
+import { Shield, Award, Users, TrendingUp, Check } from "lucide-react";
 
 const WhyLicSection = () => {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    const elements = document.querySelectorAll(".animate-on-load");
-    elements.forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.2}s`;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const animatedElements = document.querySelectorAll('.fade-in');
+    animatedElements.forEach((el) => {
+      observer.observe(el);
     });
+
+    return () => {
+      animatedElements.forEach((el) => {
+        observer.unobserve(el);
+      });
+    };
   }, []);
 
   return (
-    <section className="why-lic-section">
+    <section className="why-lic-section" ref={sectionRef}>
       <div className="why-lic-container">
-        <div className="why-lic-header animate-on-load">
+        <div className="why-lic-header fade-in">
           <h2>Why Choose LIC?</h2>
           <p>LIC – Trust, Security, and a Legacy of Protection!</p>
         </div>
 
         <div className="why-lic-content">
-          <div className="combined-card animate-on-load">
+          <div className="combined-card">
+            {/* Top Stats Row */}
+            <div className="stats-highlights fade-in">
+              <div className="stat-highlight-item">
+                <div className="highlight-number">68</div>
+                <div className="highlight-text">Years of Trust</div>
+              </div>
+              <div className="stat-highlight-item">
+                <div className="highlight-number">2.04 Cr.</div>
+                <div className="highlight-text">Policies Issued</div>
+              </div>
+              <div className="stat-highlight-item">
+                <div className="highlight-number">69.91%</div>
+                <div className="highlight-text">Market Share</div>
+              </div>
+              <div className="stat-highlight-item">
+                <div className="highlight-number">₹ 2.22L Cr.</div>
+                <div className="highlight-text">Premium Income</div>
+              </div>
+            </div>
+
+            {/* Card Content Grid */}
             <div className="card-content-wrapper">
-              {/* Left Section (Strength Stats) */}
-              <div className="strength-section">
-                <div className="icon-container">
-                  <Shield className="strength-icon" />
+              {/* Strength Stats */}
+              <div className="strength-section fade-in">
+                <div className="section-header">
+                  <Shield className="section-icon" />
+                  <h3>Our Strength</h3>
                 </div>
-                <h3>68 years of Trust</h3>
-                <div className="stats-grid">
-                  <div className="stat-item animate-on-load">
-                    <h4>Policies Issued</h4>
-                    <p>2.04 Cr.</p>
+                <div className="strength-metrics">
+                  <div className="metric-item">
+                    <TrendingUp className="metric-icon" />
+                    <div className="metric-info">
+                      <h4>Financial Security</h4>
+                      <p>Backed by Government of India with unmatched stability</p>
+                    </div>
                   </div>
-                  <div className="stat-item animate-on-load">
-                    <h4>1st Yr. Premium Income</h4>
-                    <p>₹ 2,22,522 Cr.</p>
+                  <div className="metric-item">
+                    <Users className="metric-icon" />
+                    <div className="metric-info">
+                      <h4>Customer Trust</h4>
+                      <p>Serving millions of Indians since 1956</p>
+                    </div>
                   </div>
-                  <div className="stat-item animate-on-load">
-                    <h4>Policy Market Share</h4>
-                    <p>69.91%</p>
+                  <div className="metric-item">
+                    <Award className="metric-icon" />
+                    <div className="metric-info">
+                      <h4>Proven Excellence</h4>
+                      <p>Leading insurance provider with comprehensive coverage</p>
+                    </div>
                   </div>
                 </div>
-                <p className="source-text">*As per LIC Report FY. 2023-24</p>
               </div>
 
-              {/* Right Section (Claim Performance) */}
-              <div className="claim-section">
+              {/* Claim Performance */}
+              <div className="claim-section fade-in">
                 <h3>Claim Performance</h3>
                 <div className="claim-stats">
-                  <div className="claim-item animate-on-load">
-                    <div className="claim-circle pulse">
-                      <span>93.48%</span>
+                  <div className="claim-item">
+                    <div className="claim-circle">
+                      <svg className="progress-ring" width="120" height="120">
+                        <circle className="progress-ring-bg" cx="60" cy="60" r="52" />
+                        <circle className="progress-ring-circle performance-ring" cx="60" cy="60" r="52" style={{"--percentage": "93.48"}} />
+                      </svg>
+                      <div className="claim-value">
+                        <span className="percentage">93.48%</span>
+                        <span className="label">Claim Settlement</span>
+                      </div>
                     </div>
-                    <p>Claim settlement</p>
                   </div>
-                  <div className="claim-item animate-on-load">
-                    <div className="claim-circle pulse">
-                      <span>2.21 Cr.</span>
+                  <div className="claim-details">
+                    <div className="claim-detail-item fade-in">
+                      <div className="detail-value">2.21 Cr.</div>
+                      <div className="detail-label">Claims Settled</div>
                     </div>
-                    <p>No. of Claims Settled</p>
-                  </div>
-                  <div className="claim-item animate-on-load">
-                    <div className="claim-circle pulse">
-                      <span>₹ 230,272 Cr.</span>
+                    <div className="claim-detail-item fade-in">
+                      <div className="detail-value">₹ 2.3L Cr.</div>
+                      <div className="detail-label">Amount Paid</div>
                     </div>
-                    <p>Claims paid</p>
                   </div>
                 </div>
                 <p className="source-text">*As per LIC Report FY. 2023-24</p>
@@ -72,15 +125,33 @@ const WhyLicSection = () => {
             </div>
 
             {/* Benefits Section */}
-            <div className="benefits-section animate-on-load">
+            <div className="benefits-section fade-in">
               <h3 className="benefits-heading">Our Commitment to You</h3>
               <div className="benefits-list">
-                <div className="benefit-item">Trust & Legacy – Serving India since 1956 with unmatched reliability.</div>
-                <div className="benefit-item">Government-Backed – India’s most trusted life insurer.</div>
-                <div className="benefit-item">Wide Range of Plans – Protection, savings, retirement, and more.</div>
-                <div className="benefit-item">Guaranteed Benefits – Secure payouts with strong financial backing.</div>
-                <div className="benefit-item">Extensive Network – Over 2,000 branches and millions of agents across India.</div>
-                <div className="benefit-item">Customer-Centric Services – Easy claims, policy loans, and flexible premium options.</div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Trust & Legacy – Serving India since 1956 with unmatched reliability</span>
+                </div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Government-Backed – India's most trusted life insurer</span>
+                </div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Wide Range of Plans – Protection, savings, retirement, and more</span>
+                </div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Guaranteed Benefits – Secure payouts with strong financial backing</span>
+                </div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Extensive Network – Over 2,000 branches and millions of agents across India</span>
+                </div>
+                <div className="benefit-item">
+                  <Check className="benefit-icon" />
+                  <span>Customer-Centric Services – Easy claims, policy loans, and flexible premium options</span>
+                </div>
               </div>
             </div>
           </div>

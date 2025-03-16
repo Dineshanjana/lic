@@ -1,0 +1,344 @@
+/* GlassCard.css */
+
+.glassSection {
+    padding: 50px 0px;
+    position: relative;
+    background: linear-gradient(135deg, var(--near-black), var(--dark-navy), var(--navy));
+  }
+  
+  .glassContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .glassCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 2rem;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .glassCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .gradientCircle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), transparent);
+    opacity: 0.15;
+    top: -50px;
+    right: -50px;
+    z-index: 1;
+  }
+  
+  .cardBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(to right, var(--navy), var(--dark-navy));
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+  }
+  
+  .cardIcon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cardContent {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+  
+  .buttonContainer {
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cardButton {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(to right, var(--gold), #ffda85);
+    color: var(--near-black);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .cardButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 195, 0, 0.3);
+  }
+  
+  .sectionTitle {
+    margin-bottom: 3rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .viewMoreCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
+  }
+  
+  .viewMoreIcon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  
+  .iconRipple {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    animation: ripple 2s infinite ease-out;
+  }
+  
+  .largeIconRipple {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    animation: rippleLarge 2s infinite ease-out;
+    animation-delay: 0.5s;
+  }
+  
+  .pulseButton {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Tab Navigation Styles */
+  .tabsContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1rem;
+  }
+  
+  .tabsWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tabPill {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .tabPill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .activeTab {
+    background: linear-gradient(to right, var(--gold), #ffda85);
+    color: var(--near-black);
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(255, 195, 0, 0.3);
+    border: none;
+  }
+  
+  .activeTab:hover {
+    background: linear-gradient(to right, var(--gold), #ffda85);
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes rippleLarge {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 195, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 195, 0, 0);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .glassContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .tabsWrapper {
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      justify-content: flex-start;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .tabsWrapper::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .tabPill {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+  }
+  
+  /* Swiper Container */
+  .swiper {
+    width: 100%;
+    padding: 40px 0px !important;
+  }
+  
+  /* Navigation Buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--gold);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 1.5rem;
+  }
+  
+  /* Hide Navigation on Mobile */
+  @media (max-width: 640px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+  
+  /* Pagination */
+  .swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: var(--gold);
+    transform: scale(1.5);
+  }
+  
+  /* Card Spacing */
+  .glassCard {
+    margin: 0 10px; /* Add horizontal spacing between cards */
+  }
+  
+  /* Empty state for when no cards are available */
+  .noCardsFound {
+    text-align: center;
+    color: white;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 600px;
+  }

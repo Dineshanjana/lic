@@ -6,22 +6,20 @@ import PricingSlider from './PricingSlider.jsx';
 import LicTermPlans from './LicTermPlans.jsx';
 import Testimonial from './Testimonials.jsx';
 import WhyLicSection from './WhyLicSection.jsx';
- import WhyUsSection from './WhyUsSection.jsx';
+import WhyUsSection from './WhyUsSection.jsx';
 
 const HomePageLayout = () => {
   return (
     <div>
-      
+
       <HeroSection />
-       <LicTermPlans/> 
+      <LicTermPlans />
       <ServiceSection />
-      <WhyLicSection/>
-       <Carousel /> 
-       <PricingSlider />  
-       <Testimonial/>  
-       
-       <WhyUsSection/>
-      
+      <Carousel />
+      <PricingSlider />
+      <WhyLicSection />
+      <Testimonial />
+      <WhyUsSection />
     </div>
   );
 };
